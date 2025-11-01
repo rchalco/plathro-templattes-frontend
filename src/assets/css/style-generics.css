@@ -1,0 +1,259 @@
+/* Importación de la fuente Comic Neue (alternativa moderna a Comic Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+/* Establecer la fuente por defecto para toda la página */
+:root {
+  --font-comic: 'Comic Neue', 'Comic Sans MS', cursive;
+}
+
+body {
+  font-family: var(--font-comic);
+}
+
+/* Gradient classes for headers */
+.bg-gradient-dark {
+  background-image: linear-gradient(195deg, #42424a 0%, #191919 100%);
+}
+
+.shadow-dark {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 33, 33, 0.4);
+}
+
+.header-wizar {
+  min-width: 80%;
+  background: transparent;
+}
+.wizzard-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+
+.wizard-title {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #2e7d32;
+  text-align: center;
+  padding: 0 1rem;
+  font-family: var(--font-comic);
+  letter-spacing: 0.5px;
+}
+
+.wizard-subtitle {
+  font-size: 1.1rem;
+  color: #265027;
+  text-align: center;
+  font-weight: 300;
+  font-family: var(--font-comic);
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+/********botones***********/
+.button-row {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.bg-success-light {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #2e7d32 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-success-light:hover {
+  background-color: rgba(255, 255, 255, 1) !important;
+  transform: translateY(-2px);
+}
+
+.bg-success {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.bg-success-green {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.bg-success:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/**** fin botones *************/
+
+@media (max-width: 768px) {
+  .wizard-title {
+    font-size: 1.15rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0;
+  }
+
+  .wizard-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .card-header {
+    padding: 0.5rem;
+  }
+
+  hr {
+    margin: 0.5rem 0;
+  }
+}
+
+.article-container {
+  padding: 0em;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+.wizzard-container {
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+/*************mapas**************/
+.map-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+/*************fin mapas**************/
+/*********input de formulario con icono **********/
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-with-icon i {
+  font-size: 1.2em;
+  color: #14532d;
+  margin-right: 0.5em;
+  min-width: 1.5em;
+  text-align: center;
+}
+
+/* Opcional: ajusta el ancho del input para que no se desborde */
+.input-with-icon .dx-textbox,
+.input-with-icon .dx-selectbox {
+  flex: 1 1 0%;
+}
+/********************************modal personalizado para galería y pago ************************/
+/* Overlay blanco con opacidad */
+.custom-overlay {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal centrado */
+.custom-modal {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.custom-modal-bar {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 48px;
+  z-index: 1;
+  /* sticky para que siempre esté visible */
+  position: sticky;
+  top: 0;
+}
+
+.custom-modal-img-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: auto;
+}
+
+.custom-modal-img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+@media (max-width: 576px) {
+  .custom-modal {
+    max-width: 98vw;
+    max-height: 98vh;
+  }
+
+  .custom-modal-img {
+    max-width: 95vw;
+    max-height: 60vh;
+  }
+
+  .custom-modal-bar {
+    min-height: 40px;
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+.dx-scheduler-appointment,
+.dx-scheduler-appointment-horizontal,
+.dx-item.dx-scheduler-appointment.dx-scheduler-appointment-horizontal.dx-resizable,
+.custom-appointment {
+  min-height: 35px !important;
+  height: 35px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: normal;
+}
+
+.dx-scheduler-appointment .dx-scheduler-appointment-content {
+  min-width: 220px !important;
+  width: auto !important;
+}
