@@ -6,15 +6,18 @@ import { useUserStore } from '@/modules/security/store/userStore'
 import Login from '../modules/security/views/AuthLogin.vue'
 import PerfilUser from '@/modules/security/views/PerfilUser.vue'
 
+// Customer template pages
+import HomePage from '@/modules/customer-template/home/routes/HomePage.vue'
+import AboutPage from '@/modules/customer-template/about/routes/AboutPage.vue'
+import TeamPage from '@/modules/customer-template/team/routes/TeamPage.vue'
+import CustomersPage from '@/modules/customer-template/customers/routes/CustomersPage.vue'
+import ContactPage from '@/modules/customer-template/contact/routes/ContactPage.vue'
+import ServicesPage from '@/modules/customer-template/services/routes/ServicesPage.vue'
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: Login,
-    meta: {
-      preload: true,
-      title: 'Inicio',
-    },
+    redirect: '/home',
   },
   {
     path: '/login',
@@ -34,6 +37,60 @@ const routes: RouteRecordRaw[] = [
       title: 'Perfil de Usuario',
     },
   },
+  {
+    path: '/home',
+    name: 'home',
+    component: HomePage,
+    meta: {
+      preload: true,
+      title: 'Home',
+    },
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutPage,
+    meta: {
+      preload: false,
+      title: 'About Us',
+    },
+  },
+  {
+    path: '/team',
+    name: 'team',
+    component: TeamPage,
+    meta: {
+      preload: false,
+      title: 'Our Team',
+    },
+  },
+  {
+    path: '/customers',
+    name: 'customers',
+    component: CustomersPage,
+    meta: {
+      preload: false,
+      title: 'Customer Success',
+    },
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactPage,
+    meta: {
+      preload: false,
+      title: 'Contact Us',
+    },
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: ServicesPage,
+    meta: {
+      preload: false,
+      title: 'Our Services',
+    },
+  },
 ]
 
 const router = createRouter({
@@ -47,7 +104,7 @@ router.beforeEach(async (to, from, next) => {
   document.title = `${to.meta.title} - Base App` || 'Base App'
 
   // Permitir acceso libre a rutas públicas
-  const publicRoutes = ['login', 'home']
+  const publicRoutes = ['login', 'home', 'about', 'team', 'customers', 'contact', 'services']
 
   if (!publicRoutes.includes(to.name as string)) {
     const userStore = useUserStore()
