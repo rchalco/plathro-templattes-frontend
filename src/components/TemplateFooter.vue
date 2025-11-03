@@ -50,12 +50,9 @@ import EditableText from './EditableText.vue'
 </script>
 <style scoped>
 .brand-image-footer {
-  max-width: 30% !important;
+  max-width: 100px !important;
   margin-top: 15%;
   margin-left: 2px;
-}
-
-.site-footer-content {
-  margin-left: -40px;
+  margin-right: 100px;
 }
 </style>
