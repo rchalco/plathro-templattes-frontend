@@ -9,11 +9,14 @@ import './assets/css/nucleo-svg.css'
 
 import './assets/js/nav-pills.js'
 import './assets/js/ripple-effect.js'
-import './assets/scss/material-dashboard.scss'
+
 import 'devextreme/dist/css/dx.fluent.blue.light.css'
-import './assets/css/style-generics.css'
 
 import config from 'devextreme/core/config'
+import './assets/css/normalize.css'
+import './assets/css/webflow.css'
+import './assets/css/mnimvp.webflow.css'
+import './assets/css/mnimvp.webflow.css'
 import './firebase/firebase'
 import { licenseKey } from './devextreme-license'
 
