@@ -12,9 +12,6 @@ import VerifyCredentialOAuthInput, {
   ProviderEnum,
 } from '@/modules/security/models/VerifyCredentialOAuthInput'
 import { useUserStore } from '@/modules/security/store/userStore'
-import GetAllAddress from '@/modules/host/usecase/get-all-address/GetAllAddress'
-import GetAllAddressRequest from '@/modules/host/usecase/get-all-address/GetAllAddressRequest'
-import { CitiesStore } from '@/modules/host/store/cities/CitiesStore'
 
 export async function loginWithProvider(providerKey: 'google' | 'facebook' | 'apple') {
   const baseURL = environment.apiBaseUrl
@@ -53,19 +50,4 @@ export async function loginWithProvider(providerKey: 'google' | 'facebook' | 'ap
   )
   const userStore = useUserStore()
   await userStore.setOAuthUser(response)
-
-  // Load cities data immediately after successful login
-  try {
-    const getAllAddress = new GetAllAddress()
-
-    const getAllAddressRequest = new GetAllAddressRequest()
-    getAllAddressRequest.idSesion = userStore.user?.value?.idSession || 0
-    const citiesResponse = await getAllAddress.execute(getAllAddressRequest)
-
-    const citiesStore = CitiesStore()
-    citiesStore.setCities(citiesResponse)
-  } catch (citiesError) {
-    console.error('Error loading cities after login:', citiesError)
-    // Don't throw error here to avoid breaking the login flow
-  }
 }

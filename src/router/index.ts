@@ -13,6 +13,7 @@ import TeamPage from '@/modules/customer-template/team/routes/TeamPage.vue'
 import CustomersPage from '@/modules/customer-template/customers/routes/CustomersPage.vue'
 import ContactPage from '@/modules/customer-template/contact/routes/ContactPage.vue'
 import ServicesPage from '@/modules/customer-template/services/routes/ServicesPage.vue'
+import Terms from '@/modules/compliance/Terms.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -91,6 +92,15 @@ const routes: RouteRecordRaw[] = [
       title: 'Our Services',
     },
   },
+  {
+    path: '/terms',
+    name: 'terms',
+    component: Terms,
+    meta: {
+      preload: false,
+      title: 'Terms & Conditions',
+    },
+  },
 ]
 
 const router = createRouter({
@@ -101,10 +111,20 @@ const router = createRouter({
 // Navigation guard
 router.beforeEach(async (to, from, next) => {
   // Actualizar el título de la página
-  document.title = `${to.meta.title} - Base App` || 'Base App'
+  document.title = `${to.meta.title} - Platheo Templates` || 'Platheo Templates'
 
   // Permitir acceso libre a rutas públicas
-  const publicRoutes = ['login', 'home', 'about', 'team', 'customers', 'contact', 'services']
+  const publicRoutes = [
+    'login',
+    'home',
+    'about',
+    'team',
+    'customers',
+    'contact',
+    'services',
+    'terms',
+    '',
+  ]
 
   if (!publicRoutes.includes(to.name as string)) {
     const userStore = useUserStore()

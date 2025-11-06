@@ -1,0 +1,85 @@
+# Azure DevOps Pipeline - Build Vue App and Deploy to AWS S3 (Stage Environment)
+# Este pipeline compila la aplicación Vue con Vite y la sube a un bucket S3
+# Ambiente: Stage (sin CloudFront)
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: 'Azure Pipelines'
+
+variables:
+  # Configura estas variables en Azure DevOps Pipeline Variables (Library o Pipeline settings)
+  # AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+  # AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+  # S3_BUCKET_NAME: $(S3_BUCKET_NAME)
+  # AWS_REGION: $(AWS_REGION)
+  NODE_VERSION: '20.x'
+  DIST_FOLDER: 'dist'
+
+stages:
+  - stage: Build
+    displayName: 'Build Application - Stage'
+    jobs:
+      - job: BuildJob
+        displayName: 'Build Vue App SPA - Stage Environment'
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: $(NODE_VERSION)
+
+          - script: |
+              npm install -g pnpm@latest
+            displayName: 'Install pnpm'
+
+          - script: |
+              pnpm install --frozen-lockfile
+            displayName: 'Install Dependencies'
+
+          - script: |
+              pnpm run build
+            displayName: 'Build Application'
+
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Build Artifacts'
+            inputs:
+              PathtoPublish: '$(DIST_FOLDER)'
+              ArtifactName: 'dist'
+              publishLocation: 'Container'
+
+  - stage: Deploy
+    displayName: 'Deploy to S3 - Stage'
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: DeployToS3
+        displayName: 'Deploy to AWS S3 - Stage Environment'
+        environment: 'stage'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: dist
+                  displayName: 'Download Build Artifacts'
+
+                - task: UsePythonVersion@0
+                  displayName: 'Use Python 3.x'
+                  inputs:
+                    versionSpec: '3.x'
+                    addToPath: true
+
+                - script: |
+                    pip install awscli
+                  displayName: 'Install AWS CLI'
+
+                - script: |
+                    aws s3 sync $(Pipeline.Workspace)/dist s3://$(S3_BUCKET_NAME) --delete
+                  displayName: 'Sync all files to S3 Bucket - Stage (index.html, favicon.ico, assets/)'
+                  env:
+                    AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+                    AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+                    AWS_DEFAULT_REGION: $(AWS_REGION)

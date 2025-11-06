@@ -38,7 +38,7 @@ locale(navigator.language);
   /* Limita el ancho máximo del contenido */
   padding: 0;
   /* Fondo blanco para el contenido */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
   /* Sombra sutil */
   border-radius: 1rem;
   /* Bordes redondeados */

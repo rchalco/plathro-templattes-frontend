@@ -2,62 +2,31 @@
   <section class="contact-section">
     <div class="contact-container">
       <div class="contact-info">
-        <EditableText
-          page-name="contact"
-          component-name="info"
-          element-id="title"
-          default-value="Get in Touch"
-          tag="h1"
-          class-name="contact-title"
-          :rows="1"
-        />
-        <EditableText
-          page-name="contact"
-          component-name="info"
-          element-id="description"
-          default-value="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
-          tag="p"
-          class-name="contact-description"
-          :rows="3"
-        />
+        <EditableText page-name="contact" component-name="info" element-id="title" default-value="Get in Touch" tag="h1"
+          class-name="contact-title" :rows="1" />
+        <EditableText page-name="contact" component-name="info" element-id="description"
+          default-value="We'd love to hear from you. Send us a message and we'll respond as soon as possible." tag="p"
+          class-name="contact-description" :rows="3" />
         <div class="contact-details">
           <div class="contact-detail-item">
             <h3>Email</h3>
-            <EditableText
-              page-name="contact"
-              component-name="info"
-              element-id="email"
-              default-value="info@example.com"
-              tag="p"
-              :rows="1"
-            />
+            <EditableText page-name="contact" component-name="info" element-id="email" default-value="info@example.com"
+              tag="p" :rows="1" />
           </div>
           <div class="contact-detail-item">
             <h3>Phone</h3>
-            <EditableText
-              page-name="contact"
-              component-name="info"
-              element-id="phone"
-              default-value="+1 (555) 123-4567"
-              tag="p"
-              :rows="1"
-            />
+            <EditableText page-name="contact" component-name="info" element-id="phone" default-value="+1 (555) 123-4567"
+              tag="p" :rows="1" />
           </div>
           <div class="contact-detail-item">
             <h3>Address</h3>
-            <EditableText
-              page-name="contact"
-              component-name="info"
-              element-id="address"
-              default-value="123 Business St, Suite 100, City, State 12345"
-              tag="p"
-              :rows="2"
-            />
+            <EditableText page-name="contact" component-name="info" element-id="address"
+              default-value="123 Business St, Suite 100, City, State 12345" tag="p" :rows="2" />
           </div>
         </div>
       </div>
       <div class="contact-form">
-        <h2>Send us a message</h2>
+        <h2>Send us a message by ruben</h2>
         <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <input type="text" placeholder="Your Name" required />

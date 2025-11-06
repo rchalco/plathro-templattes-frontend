@@ -2,20 +2,30 @@
   <footer class="site-section-footer">
     <div class="site-footer-container">
       <div class="site-footer-wrapper">
-        <a href="index.html" aria-current="page" class="site-navbar-brand w-nav-brand w--current"><img loading="lazy"
-            alt="" src="../assets/images/platheo-logo-footer.png" class="brand-image-footer"></a>
+        <!-- Logo -->
+        <a href="/" class="site-navbar-brand w-nav-brand" aria-label="Platheo home">
+          <img loading="lazy" alt="Platheo logo" src="../assets/images/platheo-logo-footer.png"
+            class="brand-image-footer">
+        </a>
+
+        <!-- Footer Content -->
         <div class="site-footer-content">
-          <div id="w-node-_9dde8abc-c8ac-ce02-b73d-8061610d4668-610d4660" class="site-footer-block">
+          <!-- Overview Section -->
+          <div class="site-footer-block">
             <div class="title-small">OVERVIEW</div>
-            <router-link to="/team" class="footer-link">Team</router-link>
-            <router-link to="/about" class="footer-link">About us</router-link>
-            <router-link to="/contact" class="footer-link">Contact us</router-link>
+            <router-link v-for="link in overviewLinks" :key="link.path" :to="link.path" class="footer-link">
+              {{ link.label }}
+            </router-link>
           </div>
-          <div id="w-node-_9dde8abc-c8ac-ce02-b73d-8061610d4673-610d4660" class="site-footer-block">
+
+          <!-- Services Section -->
+          <div class="site-footer-block">
             <div class="title-small">SERVICES</div>
             <router-link to="/services" class="footer-link">Corporate Site</router-link>
           </div>
-          <div id="w-node-_9dde8abc-c8ac-ce02-b73d-8061610d4680-610d4660" class="site-footer-block">
+
+          <!-- Address Section -->
+          <div class="site-footer-block">
             <div class="title-small">Mail Address</div>
             <div class="address-section">
               <EditableText page-name="shared" component-name="footer" element-id="company-address"
@@ -23,31 +33,79 @@
                 class-name="footer-link" :rows="3" />
             </div>
           </div>
-          <div id="w-node-_9dde8abc-c8ac-ce02-b73d-8061610d4689-610d4660" class="site-footer-block">
-            <div class="title-small">legal</div>
-            <router-link to="/terms" class="footer-link">Terms & Conditions</router-link>
-            <router-link to="/privacy" class="footer-link">Privacy policy</router-link>
+
+          <!-- Legal Section -->
+          <div class="site-footer-block">
+            <div class="title-small">LEGAL</div>
+            <router-link v-for="link in legalLinks" :key="link.path" :to="link.path" class="footer-link">
+              {{ link.label }}
+            </router-link>
+
+            <!-- Social Links -->
             <div class="footer-social-block">
-              <router-link to="#" class="footer-social-link w-inline-block"><img loading="lazy" height="22" alt=""
-                  src="/src/assets/images/yt.svg" class="image-20"></router-link>
-              <router-link to="#" class="footer-social-link w-inline-block"><img loading="lazy" height="20" alt=""
-                  src="/src/assets/images/fb.svg" class="image-21"></router-link>
-              <router-link to="#" class="footer-social-link w-inline-block"><img loading="lazy" height="20" alt=""
-                  src="/src/assets/images/insta.svg" class="image-19"></router-link>
+              <a v-for="social in socialLinks" :key="social.name" :href="social.url" :aria-label="social.name"
+                class="footer-social-link" target="_blank" rel="noopener noreferrer">
+                <img loading="lazy" :height="social.height" :alt="`${social.name} icon`" :src="social.icon">
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-divider"></div>
-    <div class="site-footer-copyright-center">Copyright © 2025 Platheo</div>
 
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Copyright -->
+    <div class="site-footer-copyright-center">
+      Copyright © {{ currentYear }} Platheo
+    </div>
   </footer>
 </template>
 
+
 <script setup lang="ts">
-import EditableText from './EditableText.vue'
+import { computed } from 'vue';
+import EditableText from './EditableText.vue';
+
+// Navigation links
+const overviewLinks = [
+  { path: '/team', label: 'Team' },
+  { path: '/about', label: 'About us' },
+  { path: '/contact', label: 'Contact us' }
+];
+
+const legalLinks = [
+  { path: '/terms', label: 'Terms & Conditions' },
+  { path: '/privacy', label: 'Privacy policy' }
+];
+
+// Social media links
+const socialLinks = [
+  {
+    name: 'YouTube',
+    url: 'https://youtube.com',
+    icon: '/src/assets/images/yt.svg',
+    height: 22
+  },
+  {
+    name: 'Facebook',
+    url: 'https://facebook.com',
+    icon: '/src/assets/images/fb.svg',
+    height: 20
+  },
+  {
+    name: 'Instagram',
+    url: 'https://instagram.com',
+    icon: '/src/assets/images/insta.svg',
+    height: 20
+  }
+];
+
+// Dynamic year
+const currentYear = computed(() => new Date().getFullYear());
 </script>
+
 <style scoped>
 .brand-image-footer {
   max-width: 100px !important;

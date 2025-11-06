@@ -1,6 +1,6 @@
 <template>
-  <div class="editable-image" :class="{ 'edit-mode': isEditMode }">
-    <img v-if="displayValue" :src="displayValue" :alt="alt" :class="imgClass" />
+  <div :class="{ 'edit-mode': isEditMode }">
+    <img v-if="displayValue" :src="displayValue" :class="imgClass" :sizes="sizes" :alt="alt" />
     <div v-else class="placeholder-image">
       <span>No image</span>
     </div>
@@ -25,7 +25,8 @@ interface Props {
   elementId: string
   defaultValue?: string
   alt?: string
-  imgClass?: string
+  imgClass?: string,
+  sizes?: string,
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -86,18 +87,6 @@ const handleImageUpload = async (event: Event) => {
 </script>
 
 <style scoped>
-.editable-image {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.editable-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .placeholder-image {
   width: 100%;
   min-height: 200px;
@@ -115,9 +104,9 @@ const handleImageUpload = async (event: Event) => {
 
 .edit-overlay {
   position: absolute;
-  top: 0;
+  /*top: 0;
   left: 0;
-  right: 0;
+  right: 0;*/
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -133,16 +122,17 @@ const handleImageUpload = async (event: Event) => {
 
 .upload-button {
   padding: 10px 20px;
-  background-color: #2196f3;
+  background-color: #0f1011;
   color: white;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
   transition: background-color 0.3s;
+  z-index: 100 !important;
 }
 
 .upload-button:hover {
-  background-color: #1976d2;
+  background-color: #0a0c0e;
 }
 </style>

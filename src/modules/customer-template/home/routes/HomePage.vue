@@ -3,8 +3,9 @@
     <TemplateHeader />
     <main class="main-content">
       <HeroSection />
-      <FeaturesSection />
-      <VideoSection />
+      <HomeMessage />
+      <HomeSectionTestimony />
+      <HomeLogosMarquee />
     </main>
     <TemplateFooter />
   </div>
@@ -14,8 +15,9 @@
 import TemplateHeader from '@/components/TemplateHeader.vue'
 import TemplateFooter from '@/components/TemplateFooter.vue'
 import HeroSection from '../components/HeroSection.vue'
-import FeaturesSection from '../components/FeaturesSection.vue'
-import VideoSection from '../components/VideoSection.vue'
+import HomeMessage from '../components/HomeMessage.vue'
+import HomeSectionTestimony from '../components/HomeSectionTestimony.vue'
+import HomeLogosMarquee from '../components/HomeLogosMarquee.vue'
 </script>
 
 <style scoped>
@@ -27,5 +29,22 @@ import VideoSection from '../components/VideoSection.vue'
 
 .main-content {
   flex: 1;
+  margin-top: 40px;
+  /* Espacio para el header fijo */
+}
+
+/* Ajuste responsive para tablets y móviles */
+@media screen and (max-width: 991px) {
+  .main-content {
+    margin-top: 70px;
+    /* Menos espacio en pantallas pequeñas */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-content {
+    margin-top: 50px;
+    /* Aún menos espacio en móviles */
+  }
 }
 </style>
