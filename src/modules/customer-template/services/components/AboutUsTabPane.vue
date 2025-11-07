@@ -239,9 +239,22 @@ withDefaults(defineProps<Props>(), {
     gap: 1.5rem;
   }
 
+  /* Imágenes más compactas en mobile */
   .values-images-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .values-images-grid :deep(> div) {
+    height: 140px;
+  }
+
+  .values-images-grid :deep(.values-img),
+  .values-images-grid :deep(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
   }
 
   .values-heading-wrap {
@@ -303,8 +316,18 @@ withDefaults(defineProps<Props>(), {
     gap: 1rem;
   }
 
+  /* Imágenes aún más compactas */
   .values-images-grid {
-    gap: 0.5rem;
+    gap: 0.375rem;
+  }
+
+  .values-images-grid :deep(> div) {
+    height: 120px;
+  }
+
+  .values-images-grid :deep(.values-img),
+  .values-images-grid :deep(img) {
+    border-radius: 4px;
   }
 
   .heading-12 {

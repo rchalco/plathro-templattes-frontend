@@ -155,23 +155,49 @@ const tabs = [
     font-size: 1.75rem;
   }
 
+  /* Tabs horizontales como tabs reales en mobile */
   .values-tabs-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    flex-direction: row;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid #e5e5e5;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .values-tabs-menu::-webkit-scrollbar {
+    display: none;
   }
 
   .values-tab-link {
-    width: 100%;
-    min-width: unset;
-    padding: 0.875rem 1rem;
-    font-size: 1rem;
-    border-radius: 6px;
+    flex: 1 1 auto;
+    min-width: 110px;
+    padding: 0.875rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 0;
+    border-bottom: 3px solid transparent;
+    background-color: transparent;
+    color: #666;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .values-tab-link.w--current {
+    border-bottom-color: #667eea;
+    color: #667eea;
+    background-color: rgba(102, 126, 234, 0.05);
+  }
+
+  .values-tab-link:hover {
+    transform: none;
+    background-color: rgba(102, 126, 234, 0.03);
   }
 
   /* Mejorar espaciado del contenido de tabs */
   .values-tabs-content {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 }
 
@@ -192,8 +218,13 @@ const tabs = [
   }
 
   .values-tab-link {
-    padding: 0.75rem 0.875rem;
-    font-size: 0.95rem;
+    min-width: 100px;
+    padding: 0.75rem 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  .values-tabs-content {
+    margin-top: 1rem;
   }
 }
 

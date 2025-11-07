@@ -35,6 +35,18 @@ const cards = ref<Card[]>([
     cardClass: 'primary-card'
   }
 ])
+
+const updateCardImage = (index: number, value: string) => {
+  cards.value[index].image = value
+}
+
+const updateCardTitle = (index: number, value: string) => {
+  cards.value[index].title = value
+}
+
+const updateCardDescription = (index: number, value: string) => {
+  cards.value[index].description = value
+}
 </script>
 
 <template>
@@ -43,20 +55,23 @@ const cards = ref<Card[]>([
       <div class="center-title-wrapper">
         <div class="section-label-2">
           <img loading="lazy" height="16" alt="" :src="iconUrl" class="image-97">
-          <EditableText class="text-block-106" tag="div" content="Why choose us" @update="(val) => { }" />
+          <EditableText page-name="services" component-name="why-us" element-id="label" class-name="text-block-106"
+            default-value="Why choose us" tag="div" />
         </div>
-        <EditableText class="heading-7" tag="h2"
-          content="We are more than just a service — we are your trusted partner in sustainable software development."
-          @update="(val) => { }" />
+        <EditableText page-name="services" component-name="why-us" element-id="heading" class-name="heading-7"
+          default-value="We are more than just a service — we are your trusted partner in sustainable software development."
+          tag="h2" />
       </div>
 
       <div class="home-1-cards-wrapper">
-        <div v-for="card in cards" :key="card.id" :class="['why-us-card', card.cardClass]">
-          <EditableImage :src="card.image" alt="Card image" class="card-image" @update="(val) => card.image = val" />
+        <div v-for="(card, index) in cards" :key="card.id" :class="['why-us-card', card.cardClass]">
+          <EditableImage page-name="services" component-name="why-us" :element-id="`card-${index}-image`"
+            :default-value="card.image" alt="Card image" img-class="card-image" />
           <div class="card-content">
-            <EditableText class="card-title" tag="h5" :content="card.title" @update="(val) => card.title = val" />
-            <EditableText class="card-description" tag="p" :content="card.description"
-              @update="(val) => card.description = val" />
+            <EditableText page-name="services" component-name="why-us" :element-id="`card-${index}-title`"
+              class-name="card-title" :default-value="card.title" tag="h5" />
+            <EditableText page-name="services" component-name="why-us" :element-id="`card-${index}-description`"
+              class-name="card-description" :default-value="card.description" tag="p" />
           </div>
         </div>
       </div>
@@ -135,6 +150,7 @@ const cards = ref<Card[]>([
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  min-height: 450px;
 }
 
 .why-us-card:hover {
@@ -147,6 +163,7 @@ const cards = ref<Card[]>([
   height: 240px;
   object-fit: cover;
   display: block;
+  flex-shrink: 0;
 }
 
 .card-content {
@@ -154,6 +171,7 @@ const cards = ref<Card[]>([
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-bottom: 2.5rem;
 }
 
 .card-title {
@@ -161,13 +179,18 @@ const cards = ref<Card[]>([
   font-weight: 700;
   margin: 0 0 1rem 0;
   line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .card-description {
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
 }
 
 /* Card variants */
@@ -190,7 +213,7 @@ const cards = ref<Card[]>([
 }
 
 .primary-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #035925;
 }
 
 .primary-card .card-title,
@@ -229,11 +252,11 @@ const cards = ref<Card[]>([
 /* Mobile */
 @media (max-width: 767px) {
   .why-us-section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .without-top-spacing {
-    padding-top: 1.5rem;
+    padding-top: 1rem;
   }
 
   .base-container-20 {
@@ -241,7 +264,7 @@ const cards = ref<Card[]>([
   }
 
   .center-title-wrapper {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .heading-7 {
@@ -250,26 +273,32 @@ const cards = ref<Card[]>([
 
   .home-1-cards-wrapper {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .why-us-card {
+    min-height: auto;
   }
 
   .card-image {
-    height: 180px;
+    height: 220px;
   }
 
   .card-content {
-    padding: 1.25rem;
+    padding: 1rem;
+    padding-bottom: 1rem;
   }
 
   .card-title {
     font-size: 1.125rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .card-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-bottom: 0;
   }
 
   .section-label-2 {
@@ -284,7 +313,15 @@ const cards = ref<Card[]>([
 /* Small mobile */
 @media (max-width: 479px) {
   .why-us-section {
-    padding: 2.5rem 0;
+    padding: 2rem 0;
+  }
+
+  .without-top-spacing {
+    padding-top: 0.75rem;
+  }
+
+  .center-title-wrapper {
+    margin-bottom: 1.5rem;
   }
 
   .heading-7 {
@@ -292,23 +329,27 @@ const cards = ref<Card[]>([
   }
 
   .home-1-cards-wrapper {
-    gap: 1rem;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
   }
 
   .card-image {
-    height: 160px;
+    height: 200px;
   }
 
   .card-content {
-    padding: 1rem;
+    padding: 0.875rem;
+    padding-bottom: 0.875rem;
   }
 
   .card-title {
     font-size: 1rem;
+    margin-bottom: 0.4rem;
   }
 
   .card-description {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
   }
 }
 </style>
