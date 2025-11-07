@@ -4,8 +4,12 @@
     <main class="main-content">
       <ServicesHeroSection />
       <ServicesContentSection />
+      <AboutSection />
+      <ServicesAboutUsSection />
+      <ServicesWhyUsSection />
     </main>
     <TemplateFooter />
+
   </div>
 </template>
 
@@ -14,6 +18,9 @@ import TemplateHeader from '@/components/TemplateHeader.vue'
 import TemplateFooter from '@/components/TemplateFooter.vue'
 import ServicesHeroSection from '../components/ServicesHeroSection.vue'
 import ServicesContentSection from '../components/ServicesContentSection.vue'
+import AboutSection from '../components/AboutSection.vue'
+import ServicesAboutUsSection from '../components/ServicesAboutUsSection.vue'
+import ServicesWhyUsSection from '../components/ServicesWhyUsSection.vue'
 </script>
 
 <style scoped>
