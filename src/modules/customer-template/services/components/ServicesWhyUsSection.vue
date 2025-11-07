@@ -35,18 +35,6 @@ const cards = ref<Card[]>([
     cardClass: 'primary-card'
   }
 ])
-
-const updateCardImage = (index: number, value: string) => {
-  cards.value[index].image = value
-}
-
-const updateCardTitle = (index: number, value: string) => {
-  cards.value[index].title = value
-}
-
-const updateCardDescription = (index: number, value: string) => {
-  cards.value[index].description = value
-}
 </script>
 
 <template>
@@ -55,23 +43,20 @@ const updateCardDescription = (index: number, value: string) => {
       <div class="center-title-wrapper">
         <div class="section-label-2">
           <img loading="lazy" height="16" alt="" :src="iconUrl" class="image-97">
-          <EditableText page-name="services" component-name="why-us" element-id="label" class-name="text-block-106"
-            default-value="Why choose us" tag="div" />
+          <EditableText class="text-block-106" tag="div" content="Why choose us" @update="(val) => { }" />
         </div>
-        <EditableText page-name="services" component-name="why-us" element-id="heading" class-name="heading-7"
-          default-value="We are more than just a service — we are your trusted partner in sustainable software development."
-          tag="h2" />
+        <EditableText class="heading-7" tag="h2"
+          content="We are more than just a service — we are your trusted partner in sustainable software development."
+          @update="(val) => { }" />
       </div>
 
       <div class="home-1-cards-wrapper">
-        <div v-for="(card, index) in cards" :key="card.id" :class="['why-us-card', card.cardClass]">
-          <EditableImage page-name="services" component-name="why-us" :element-id="`card-${index}-image`"
-            :default-value="card.image" alt="Card image" img-class="card-image" />
+        <div v-for="card in cards" :key="card.id" :class="['why-us-card', card.cardClass]">
+          <EditableImage :src="card.image" alt="Card image" class="card-image" @update="(val) => card.image = val" />
           <div class="card-content">
-            <EditableText page-name="services" component-name="why-us" :element-id="`card-${index}-title`"
-              class-name="card-title" :default-value="card.title" tag="h5" />
-            <EditableText page-name="services" component-name="why-us" :element-id="`card-${index}-description`"
-              class-name="card-description" :default-value="card.description" tag="p" />
+            <EditableText class="card-title" tag="h5" :content="card.title" @update="(val) => card.title = val" />
+            <EditableText class="card-description" tag="p" :content="card.description"
+              @update="(val) => card.description = val" />
           </div>
         </div>
       </div>
@@ -150,7 +135,6 @@ const updateCardDescription = (index: number, value: string) => {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  min-height: 450px;
 }
 
 .why-us-card:hover {
@@ -163,7 +147,6 @@ const updateCardDescription = (index: number, value: string) => {
   height: 240px;
   object-fit: cover;
   display: block;
-  flex-shrink: 0;
 }
 
 .card-content {
@@ -171,7 +154,6 @@ const updateCardDescription = (index: number, value: string) => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: 2.5rem;
 }
 
 .card-title {
@@ -179,18 +161,13 @@ const updateCardDescription = (index: number, value: string) => {
   font-weight: 700;
   margin: 0 0 1rem 0;
   line-height: 1.3;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 .card-description {
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   flex: 1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  overflow: visible;
 }
 
 /* Card variants */
@@ -213,7 +190,7 @@ const updateCardDescription = (index: number, value: string) => {
 }
 
 .primary-card {
-  background-color: #035925;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .primary-card .card-title,
@@ -252,11 +229,11 @@ const updateCardDescription = (index: number, value: string) => {
 /* Mobile */
 @media (max-width: 767px) {
   .why-us-section {
-    padding: 2.5rem 0;
+    padding: 3rem 0;
   }
 
   .without-top-spacing {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
   }
 
   .base-container-20 {
@@ -264,7 +241,7 @@ const updateCardDescription = (index: number, value: string) => {
   }
 
   .center-title-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .heading-7 {
@@ -273,32 +250,26 @@ const updateCardDescription = (index: number, value: string) => {
 
   .home-1-cards-wrapper {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .why-us-card {
-    min-height: auto;
+    gap: 1.25rem;
+    margin-top: 2rem;
   }
 
   .card-image {
-    height: 220px;
+    height: 180px;
   }
 
   .card-content {
-    padding: 1rem;
-    padding-bottom: 1rem;
+    padding: 1.25rem;
   }
 
   .card-title {
     font-size: 1.125rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .card-description {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .section-label-2 {
@@ -313,15 +284,7 @@ const updateCardDescription = (index: number, value: string) => {
 /* Small mobile */
 @media (max-width: 479px) {
   .why-us-section {
-    padding: 2rem 0;
-  }
-
-  .without-top-spacing {
-    padding-top: 0.75rem;
-  }
-
-  .center-title-wrapper {
-    margin-bottom: 1.5rem;
+    padding: 2.5rem 0;
   }
 
   .heading-7 {
@@ -329,27 +292,23 @@ const updateCardDescription = (index: number, value: string) => {
   }
 
   .home-1-cards-wrapper {
-    gap: 0.875rem;
-    margin-top: 1.25rem;
+    gap: 1rem;
   }
 
   .card-image {
-    height: 200px;
+    height: 160px;
   }
 
   .card-content {
-    padding: 0.875rem;
-    padding-bottom: 0.875rem;
+    padding: 1rem;
   }
 
   .card-title {
     font-size: 1rem;
-    margin-bottom: 0.4rem;
   }
 
   .card-description {
-    font-size: 0.85rem;
-    line-height: 1.35;
+    font-size: 0.875rem;
   }
 }
 </style>

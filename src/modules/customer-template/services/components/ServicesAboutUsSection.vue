@@ -101,58 +101,23 @@ const tabs = [
 /* Tabs menu responsive */
 .values-tabs-menu {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
   margin-bottom: 2rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-  padding-bottom: 0.5rem;
-}
-
-/* Ocultar scrollbar pero mantener funcionalidad */
-.values-tabs-menu::-webkit-scrollbar {
-  height: 4px;
-}
-
-.values-tabs-menu::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.values-tabs-menu::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.values-tabs-menu::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
 }
 
 .values-tab-link {
-  flex: 0 0 auto;
-  min-width: 120px;
+  flex: 1 1 auto;
+  min-width: 100px;
   text-align: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
-  white-space: nowrap;
-  font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid transparent;
 }
 
 .values-tab-link:hover {
   transform: translateY(-2px);
-  background-color: rgba(0, 0, 0, 0.08);
-}
-
-.values-tab-link.w--current {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
 }
 
 /* Tablet */
@@ -190,19 +155,17 @@ const tabs = [
     font-size: 1.75rem;
   }
 
-  /* Tabs horizontales con scroll en mobile */
   .values-tabs-menu {
-    justify-content: flex-start;
+    flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .values-tab-link {
-    min-width: 110px;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9rem;
+    width: 100%;
+    min-width: unset;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
     border-radius: 6px;
   }
 
@@ -228,17 +191,9 @@ const tabs = [
     margin-bottom: 1rem;
   }
 
-  /* Tabs más compactos */
-  .values-tabs-menu {
-    gap: 0.375rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
   .values-tab-link {
-    min-width: 100px;
-    padding: 0.625rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.95rem;
   }
 }
 

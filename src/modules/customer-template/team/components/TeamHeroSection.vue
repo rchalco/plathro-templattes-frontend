@@ -4,30 +4,25 @@
       <div class="inner-banner">
         <div class="inner-banner-text-wrap blog-2">
           <div>
-            <h1 data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf2" style="opacity:0" class="heading-31">
-              <EditableText 
-                page-name="team" 
-                component-name="hero" 
-                element-id="main-heading"
-                default-value="Rooted in purpose. Driven by passion." 
-                tag="span"
-                :rows="2" 
-              />
+            <h1 data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf2"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+              class="heading-31">
+              <EditableText page-name="team" component-name="hero" element-id="main-heading"
+                default-value="Rooted in purpose. Driven by passion." tag="span" :rows="2" />
             </h1>
-            <p data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf6" style="opacity:0" class="inner-banner-paragraph blog-2">
-              <EditableText 
-                page-name="team" 
-                component-name="hero" 
-                element-id="description"
-                default-value="We bring together a diverse team of experts and innovators united in our mission to create a smarter ecosystem and sustainable future in development solutions." 
-                tag="span"
-                :rows="3" 
-              />
+            <p data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf6"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+              class="inner-banner-paragraph blog-2">
+              <EditableText page-name="team" component-name="hero" element-id="description"
+                default-value="We bring together a diverse team of experts and innovators united in our mission to create a smarter ecosystem and sustainable future in development solutions."
+                tag="span" :rows="3" />
             </p>
           </div>
         </div>
         <div class="inner-labels-wrapper blog-2">
-          <div v-for="label in labels" :key="label.text" data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf9" style="opacity:0" class="video-label inner-page">
+          <div v-for="label in labels" :key="label.text" data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf9"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
+            class="video-label inner-page">
             <img loading="lazy" height="16" alt="" :src="label.icon" :class="label.imgClass">
             <div :class="label.textClass">{{ label.text }}</div>
           </div>
@@ -47,5 +42,4 @@ const labels = [
 ]
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

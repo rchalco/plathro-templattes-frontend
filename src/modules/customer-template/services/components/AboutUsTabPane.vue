@@ -239,16 +239,9 @@ withDefaults(defineProps<Props>(), {
     gap: 1.5rem;
   }
 
-  /* Imágenes más compactas en mobile */
   .values-images-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    max-height: 300px;
-  }
-
-  .values-images-grid :deep(.values-img) {
-    height: 145px;
-    border-radius: 6px;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .values-heading-wrap {
@@ -310,15 +303,8 @@ withDefaults(defineProps<Props>(), {
     gap: 1rem;
   }
 
-  /* Imágenes aún más compactas */
   .values-images-grid {
-    gap: 0.375rem;
-    max-height: 250px;
-  }
-
-  .values-images-grid :deep(.values-img) {
-    height: 120px;
-    border-radius: 4px;
+    gap: 0.5rem;
   }
 
   .heading-12 {
