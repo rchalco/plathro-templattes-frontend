@@ -85,19 +85,19 @@ const socialLinks = [
   {
     name: 'YouTube',
     url: 'https://youtube.com',
-    icon: '/src/assets/images/yt.svg',
+    icon: new URL('../assets/images/yt.svg', import.meta.url).href,
     height: 22
   },
   {
     name: 'Facebook',
     url: 'https://facebook.com',
-    icon: '/src/assets/images/fb.svg',
+    icon: new URL('../assets/images/fb.svg', import.meta.url).href,
     height: 20
   },
   {
     name: 'Instagram',
     url: 'https://instagram.com',
-    icon: '/src/assets/images/insta.svg',
+    icon: new URL('../assets/images/insta.svg', import.meta.url).href,
     height: 20
   }
 ];
@@ -107,10 +107,113 @@ const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <style scoped>
+/* Mobile-first approach */
 .brand-image-footer {
-  max-width: 100px !important;
-  margin-top: 15%;
-  margin-left: 2px;
-  margin-right: 100px;
+  max-width: 80px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* Footer wrapper - stack vertically on mobile */
+.site-footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Footer content - single column on mobile */
+.site-footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* Footer blocks - better spacing on mobile */
+.site-footer-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Title spacing */
+.title-small {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Links - larger touch targets for mobile */
+.footer-link {
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Social links - larger and centered on mobile */
+.footer-social-block {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.footer-social-link {
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-link img {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+/* Address section */
+.address-section {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Copyright - better mobile spacing */
+.site-footer-copyright-center {
+  padding: 20px 16px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Tablet breakpoint (768px+) */
+@media screen and (min-width: 768px) {
+  .brand-image-footer {
+    max-width: 100px;
+    margin: 0 0 0 2px;
+    display: block;
+  }
+
+  .site-footer-wrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .site-footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-social-block {
+    justify-content: flex-start;
+  }
+}
+
+/* Desktop breakpoint (1024px+) */
+@media screen and (min-width: 1024px) {
+  .brand-image-footer {
+    margin-right: 100px;
+    margin-top: 15%;
+  }
+
+  .site-footer-content {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
 }
 </style>

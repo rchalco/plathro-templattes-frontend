@@ -38,7 +38,7 @@
             <div class="nav-divider-2"></div>
 
 
-            <router-link to="/sign-in" class="button-white-menu" @click="closeMobileMenu">
+            <router-link to="/login" class="button-white-menu" @click="closeMobileMenu">
               Sign In
             </router-link>
 

@@ -14,11 +14,12 @@ import CustomersPage from '@/modules/customer-template/customers/routes/Customer
 import ContactPage from '@/modules/customer-template/contact/routes/ContactPage.vue'
 import ServicesPage from '@/modules/customer-template/services/routes/ServicesPage.vue'
 import Terms from '@/modules/compliance/Terms.vue'
+import PrivacyPolicy from '@/modules/compliance/PrivacyPolicy.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/login',
   },
   {
     path: '/login',
@@ -101,6 +102,15 @@ const routes: RouteRecordRaw[] = [
       title: 'Terms & Conditions',
     },
   },
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: PrivacyPolicy,
+    meta: {
+      preload: false,
+      title: 'Privacy Policy',
+    },
+  },
 ]
 
 const router = createRouter({
@@ -123,6 +133,7 @@ router.beforeEach(async (to, from, next) => {
     'contact',
     'services',
     'terms',
+    'privacy',
     '',
   ]
 
