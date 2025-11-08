@@ -23,8 +23,15 @@
           <div v-for="label in labels" :key="label.text" data-w-id="6d55edbc-72a1-635a-a3af-4186d4d6ddf9"
             style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
             class="video-label inner-page">
-            <img loading="lazy" height="16" alt="" :src="label.icon" :class="label.imgClass">
-            <div :class="label.textClass">{{ label.text }}</div>
+            <EditableText
+              page-name="team"
+              component-name="hero"
+              :element-id="`team-hero-label-${label.text.replace(/\s+/g, '-')}`"
+              :default-value="label.text"
+              tag="div"
+              :class-name="label.textClass"
+              :rows="1"
+            />
           </div>
         </div>
       </div>
@@ -36,9 +43,9 @@
 import EditableText from '@/components/EditableText.vue'
 
 const labels = [
-  { text: 'launch fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-60', textClass: 'text-block-71' },
-  { text: 'partner fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-61', textClass: 'text-block-74' },
-  { text: 'sell fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-64', textClass: 'text-block-73' }
+  { text: 'launch fast', textClass: 'text-block-71' },
+  { text: 'partner fast', textClass: 'text-block-74' },
+  { text: 'sell fast', textClass: 'text-block-73' }
 ]
 </script>
 

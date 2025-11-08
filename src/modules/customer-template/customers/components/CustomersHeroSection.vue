@@ -18,8 +18,15 @@
         <div class="inner-labels-wrapper blog-2">
           <div v-for="label in labels" :key="label.text" data-w-id="937fb857-1208-1131-f5b4-97909876e4d5"
             class="video-label inner-page">
-            <img loading="lazy" height="16" alt="" :src="label.icon" :class="label.imgClass">
-            <div :class="label.textClass">{{ label.text }}</div>
+            <EditableText
+              page-name="customers"
+              component-name="hero"
+              :element-id="`customers-hero-label-${label.text.replace(/\s+/g, '-')}`"
+              :default-value="label.text"
+              tag="div"
+              :class-name="label.textClass"
+              :rows="1"
+            />
           </div>
         </div>
       </div>
@@ -31,9 +38,9 @@
 import EditableText from '@/components/EditableText.vue'
 
 const labels = [
-  { text: 'launch fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-67', textClass: 'text-block-78' },
-  { text: 'partner fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-68', textClass: 'text-block-81' },
-  { text: 'sell fast', icon: new URL('../../../../assets/images/ligera.svg', import.meta.url).href, imgClass: 'image-70', textClass: 'text-block-80' }
+  { text: 'launch fast', textClass: 'text-block-78' },
+  { text: 'partner fast', textClass: 'text-block-81' },
+  { text: 'sell fast', textClass: 'text-block-80' }
 ]
 </script>
 

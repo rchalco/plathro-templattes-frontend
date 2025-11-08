@@ -20,8 +20,15 @@
             style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
             class="home-1-banner-labels-wrap">
             <div v-for="label in labels" :key="label.text" class="label">
-              <img loading="lazy" height="16" alt="" src="/src/assets/images/ligera.svg" :class="label.imgClass">
-              <h6 class="text-white-2">{{ label.text }}</h6>
+              <EditableText
+                page-name="home"
+                component-name="hero"
+                :element-id="`home-hero-label-${label.text.replace(/\s+/g, '-')}`"
+                :default-value="label.text"
+                tag="h6"
+                class-name="text-white-2"
+                :rows="1"
+              />
             </div>
           </div>
 
@@ -39,8 +46,14 @@
 
         <!-- Hero Faces -->
         <div class="hero-faces">
-          <EditableImage :page-name="'home'" :component-name="'hero'" :element-id="heroFaces[0].id"
-            :default-value="heroFaces[0].src" :alt="heroFaces[0].alt" :img-class="heroFaces[0].imgClass" />
+          <img
+            v-for="(face, index) in heroFaces"
+            :key="face.id"
+            :src="face.src"
+            :alt="face.alt"
+            :class="face.imgClass"
+            loading="lazy"
+          />
         </div>
 
       </div>
@@ -52,7 +65,6 @@
 
 <script setup lang="ts">
 import EditableText from '@/components/EditableText.vue'
-import EditableImage from '@/components/EditableImage.vue'
 
 // Labels data
 const labels = [
@@ -61,51 +73,56 @@ const labels = [
   { text: 'sell fast', imgClass: 'image-10' }
 ]
 
-// Hero faces data
+// Hero faces data - 4 team photos with rounded borders
 const heroFaces = [
   {
     id: 'hero-face-photo-1',
     src: new URL('../../../../assets/images/team_guillermo.jpg', import.meta.url).href,
-    sizes: '(max-width: 800px) 100vw, 800px',
-    alt: 'Team member Daniel',
-    imgClass: 'face-main-hero'
-  }/*,
-  {
-    src: '/src/assets/images/team_katty.jpg',
-    srcset: '/src/assets/images/team_katty-p-500.jpg 500w, /src/assets/images/team_katty.jpg 800w',
-    sizes: '(max-width: 800px) 100vw, 800px',
-    alt: 'Team member Katty',
-    class: 'avatar_6'
-  },
-  {
-    src: '/src/assets/images/team_ronald.jpg',
-    srcset: '/src/assets/images/team_ronald-p-500.jpg 500w, /src/assets/images/team_ronald.jpg 800w',
-    sizes: '(max-width: 800px) 100vw, 800px',
-    alt: 'Team member Ronald',
-    class: 'avatar_5'
-  },
-  {
-    src: '/src/assets/images/photo_george.jpg',
-    srcset: '',
-    sizes: '',
-    alt: 'Team member George',
-    class: 'avatar_4'
-  },
-  {
-    src: '/src/assets/images/team_jacques.jpg',
-    srcset: '/src/assets/images/team_jacques-p-500.jpg 500w, /src/assets/images/team_jacques.jpg 800w',
-    sizes: '(max-width: 800px) 100vw, 800px',
-    alt: 'Team member Jacques',
-    class: 'avatar_3 hide-mobile-portrait'
-  },
-  {
-    src: '/src/assets/images/team_guillermo.jpg',
-    srcset: '/src/assets/images/team_guillermo-p-500.jpg 500w, /src/assets/images/team_guillermo.jpg 800w',
-    sizes: '(max-width: 800px) 100vw, 800px',
     alt: 'Team member Guillermo',
-    class: 'avatar_2'
-  }*/
+    imgClass: 'hero-face-image'
+  },
+  {
+    id: 'hero-face-photo-2',
+    src: new URL('../../../../assets/images/team_katty.jpg', import.meta.url).href,
+    alt: 'Team member Katty',
+    imgClass: 'hero-face-image'
+  },
+  {
+    id: 'hero-face-photo-3',
+    src: new URL('../../../../assets/images/team_ronald.jpg', import.meta.url).href,
+    alt: 'Team member Ronald',
+    imgClass: 'hero-face-image'
+  },
+  {
+    id: 'hero-face-photo-4',
+    src: new URL('../../../../assets/images/team_jacques.jpg', import.meta.url).href,
+    alt: 'Team member Jacques',
+    imgClass: 'hero-face-image'
+  }
 ]
 </script>
 
-<style scoped></style>
+<style scoped>
+.hero-faces {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 100%;
+  margin-top: 2rem;
+}
+
+.hero-face-image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border: 3px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .hero-faces {
+    gap: 0.5rem;
+  }
+}
+</style>
