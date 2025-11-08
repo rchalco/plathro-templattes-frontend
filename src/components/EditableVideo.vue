@@ -184,6 +184,15 @@ const clearValue = () => {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Aplicar border-radius al player de YouTube */
+.editable-video :deep(iframe),
+.editable-video :deep(.youtube-player) {
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .video-edit-controls {

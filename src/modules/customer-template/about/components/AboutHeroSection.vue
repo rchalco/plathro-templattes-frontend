@@ -7,7 +7,6 @@
             <div class="w-layout-hflex about-flex-block">
               <div v-for="label in labels" :key="label.text" data-w-id="f78d4981-ca12-7772-aafb-88646e7444fe"
                 class="about-section-label">
-                <img loading="lazy" height="16" alt="" :src="label.icon" class="image-22">
                 <div class="text-block-32">{{ label.text }}</div>
               </div>
             </div>
@@ -107,7 +106,6 @@ const authorImage = new URL('../../../../assets/images/team_guillermo.jpg', impo
 
   .about-video-wrapper {
     width: 45%;
-    flex-shrink: 0;
   }
 }
 

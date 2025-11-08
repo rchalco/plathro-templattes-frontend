@@ -54,7 +54,6 @@ const updateCardDescription = (index: number, value: string) => {
     <div class="w-layout-blockcontainer base-container-20 w-container">
       <div class="center-title-wrapper">
         <div class="section-label-2">
-          <img loading="lazy" height="16" alt="" :src="iconUrl" class="image-97">
           <EditableText page-name="services" component-name="why-us" element-id="label" class-name="text-block-106"
             default-value="Why choose us" tag="div" />
         </div>
@@ -90,9 +89,9 @@ const updateCardDescription = (index: number, value: string) => {
 }
 
 .base-container-20 {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 /* Header section */
@@ -135,12 +134,14 @@ const updateCardDescription = (index: number, value: string) => {
   margin: 0;
 }
 
-/* Cards grid */
+/* Cards grid - ancho ajustado */
 .home-1-cards-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
   margin-top: 3rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .why-us-card {
@@ -150,7 +151,7 @@ const updateCardDescription = (index: number, value: string) => {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  min-height: 450px;
+  min-height: 400px;
 }
 
 .why-us-card:hover {
@@ -167,11 +168,11 @@ const updateCardDescription = (index: number, value: string) => {
 }
 
 .card-content {
-  padding: 2rem;
+  padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .card-title {
@@ -196,6 +197,8 @@ const updateCardDescription = (index: number, value: string) => {
 /* Card variants */
 .black-card {
   background-color: #1a1a1a;
+  width: 300px;
+  translate: 60px;
 }
 
 .black-card .card-title,
@@ -214,6 +217,8 @@ const updateCardDescription = (index: number, value: string) => {
 
 .primary-card {
   background-color: #035925;
+  width: 300px;
+  translate: -50px;
 }
 
 .primary-card .card-title,
@@ -246,6 +251,16 @@ const updateCardDescription = (index: number, value: string) => {
 
   .card-description {
     font-size: 0.95rem;
+  }
+
+  .primary-card {
+    translate: 0px;
+    width: 100%;
+  }
+
+  .black-card {
+    translate: 0px;
+    width: 100%;
   }
 }
 

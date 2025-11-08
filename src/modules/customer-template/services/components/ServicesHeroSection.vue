@@ -6,10 +6,12 @@
           <div class="post-inner-banner-wrap blog-2">
             <div class="w-layout-hflex about-flex-block">
               <div v-for="label in labels" :key="label.text" data-w-id="89b209c4-d8e0-ac5b-ec21-6ef357b0aa75"
-                style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
                 class="about-section-label">
-                <img loading="lazy" height="16" alt="" :src="label.icon" class="image-22">
-                <div class="text-block-32">{{ label.text }}</div>
+                <div class="text-block-32">
+                  <EditableText page-name="services" component-name="hero"
+                    :element-id="`services-hero-label-${label.text.replace(/\s+/g, '-')}`" :default-value="label.text"
+                    tag="span" class-name="text-span-29" :rows="1" />
+                </div>
               </div>
             </div>
             <div class="div-block-6">
@@ -87,8 +89,11 @@ const labels = [
   }
 
   .services-video-wrapper {
-    width: 45%;
+    width: 50%;
     flex-shrink: 0;
+    margin-left: -20px;
+    border-radius: 12px;
+    overflow: hidden;
   }
 }
 
@@ -99,12 +104,14 @@ const labels = [
   }
 
   .post-inner-banner-wrap {
-    width: 60%;
+    width: 55%;
     flex: none;
   }
 
   .services-video-wrapper {
-    width: 40%;
+    width: 45%;
+    margin-left: -30px;
+    border-radius: 16px;
   }
 }
 
@@ -112,6 +119,11 @@ const labels = [
 @media (min-width: 1440px) {
   .services-content-wrapper {
     gap: 48px;
+  }
+
+  .services-video-wrapper {
+    margin-left: -40px;
+    border-radius: 16px;
   }
 }
 

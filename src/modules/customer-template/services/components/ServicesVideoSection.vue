@@ -1,7 +1,7 @@
 <template>
   <div class="video-container">
     <EditableVideo page-name="services" component-name="hero-video" element-id="background-video"
-      default-value="https://www.youtube.com/watch?v=dQw4w9WgXcQ" width="100%" :height="videoHeight" />
+      default-value="https://www.youtube.com/watch?v=TRcReyRYIMg" width="100%" :height="videoHeight" />
   </div>
 </template>
 
@@ -77,17 +77,26 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   margin: 0;
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .video-container :deep(.youtube-player) {
   width: 100%;
   height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.video-container :deep(.video-wrapper) {
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .video-container :deep(iframe) {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: inherit;
 }
 
 /* Mobile specific styles */

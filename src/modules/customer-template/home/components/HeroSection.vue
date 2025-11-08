@@ -20,15 +20,9 @@
             style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
             class="home-1-banner-labels-wrap">
             <div v-for="label in labels" :key="label.text" class="label">
-              <EditableText
-                page-name="home"
-                component-name="hero"
-                :element-id="`home-hero-label-${label.text.replace(/\s+/g, '-')}`"
-                :default-value="label.text"
-                tag="h6"
-                class-name="text-white-2"
-                :rows="1"
-              />
+              <EditableText page-name="home" component-name="hero"
+                :element-id="`home-hero-label-${label.text.replace(/\s+/g, '-')}`" :default-value="label.text" tag="h6"
+                class-name="text-white-2" :rows="1" />
             </div>
           </div>
 
@@ -46,14 +40,10 @@
 
         <!-- Hero Faces -->
         <div class="hero-faces">
-          <img
-            v-for="(face, index) in heroFaces"
-            :key="face.id"
-            :src="face.src"
-            :alt="face.alt"
-            :class="face.imgClass"
-            loading="lazy"
-          />
+          <div v-for="(face, index) in heroFaces" :key="face.id" class="hero-face-container">
+            <EditableImage :page-name="'home'" :component-name="'hero'" :element-id="`hero-face-${index + 1}`"
+              :default-value="face.src" :alt="face.alt" :img-class="'hero-face-image'" />
+          </div>
         </div>
 
       </div>
@@ -65,12 +55,13 @@
 
 <script setup lang="ts">
 import EditableText from '@/components/EditableText.vue'
+import EditableImage from '@/components/EditableImage.vue'
 
 // Labels data
 const labels = [
   { text: 'launch fast', imgClass: 'image-8' },
-  { text: 'partner fast', imgClass: 'image-10' },
-  { text: 'sell fast', imgClass: 'image-10' }
+  { text: '| partner fast', imgClass: 'image-10' },
+  { text: '| sell fast', imgClass: 'image-10' }
 ]
 
 // Hero faces data - 4 team photos with rounded borders
@@ -108,21 +99,54 @@ const heroFaces = [
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 100%;
-  margin-top: 2rem;
+  margin-top: -6rem;
 }
 
-.hero-face-image {
+/* Contenedor aislado para cada imagen - permite botón de edición en esquina */
+.hero-face-container {
+  position: relative;
   width: 100%;
-  height: auto;
-  border-radius: 15px;
-  object-fit: cover;
   aspect-ratio: 1;
+  border-radius: 15px;
+  overflow: hidden;
   border: 3px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+/* Estilos para el wrapper de EditableImage */
+.hero-face-container :deep(> div) {
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para la imagen */
+.hero-face-container :deep(.hero-face-image),
+.hero-face-container :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 @media (max-width: 768px) {
   .hero-faces {
     gap: 0.5rem;
+  }
+
+  .hero-face-container {
+    border-radius: 12px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-faces {
+    gap: 0.375rem;
+  }
+
+  .hero-face-container {
+    border-radius: 10px;
   }
 }
 </style>

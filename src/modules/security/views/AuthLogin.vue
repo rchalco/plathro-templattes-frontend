@@ -221,7 +221,7 @@ const handleGoogleLogin = async () => {
     showSuccess.value = false
 
     // Call Firebase authentication with Google provider
-    await loginWithProvider('google')
+    //await loginWithProvider('google')
 
     showSuccess.value = true
 
