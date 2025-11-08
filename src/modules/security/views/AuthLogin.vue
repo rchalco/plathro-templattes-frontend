@@ -156,6 +156,7 @@
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { loginWithProvider } from '@/firebase/useFirebaseAuth'
 
 const router = useRouter()
 
@@ -216,14 +217,22 @@ const handleGoogleLogin = async () => {
   }
 
   try {
-    // Aquí iría la lógica de autenticación con Google
-    console.log('Google login initiated')
+    showError.value = false
+    showSuccess.value = false
 
-    // Redirigir al home
-    router.push('/home')
+    // Call Firebase authentication with Google provider
+    //await loginWithProvider('google')
+
+    showSuccess.value = true
+
+    // Redirect to questionnaire after successful login
+    setTimeout(() => {
+      router.push('/questionnaire')
+    }, 1000)
   } catch (error) {
     showError.value = true
     errorMessage.value = 'Oops! Something went wrong while submitting the form.'
+    console.error('Login error:', error)
   }
 }
 

@@ -178,21 +178,19 @@ const tabs = [
     font-weight: 600;
     border-radius: 0;
     border-bottom: 3px solid transparent;
-    background-color: transparent;
-    color: #666;
+    /* Mantener colores de desktop */
     transition: all 0.25s ease;
     white-space: nowrap;
   }
 
   .values-tab-link.w--current {
     border-bottom-color: #667eea;
-    color: #667eea;
-    background-color: rgba(102, 126, 234, 0.05);
+    /* Mantener background y color de desktop */
   }
 
   .values-tab-link:hover {
     transform: none;
-    background-color: rgba(102, 126, 234, 0.03);
+    /* Mantener hover de desktop */
   }
 
   /* Mejorar espaciado del contenido de tabs */

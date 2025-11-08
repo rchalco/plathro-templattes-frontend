@@ -1,31 +1,13 @@
 <template>
   <section class="video-section">
     <div class="video-container">
-      <EditableText
-        page-name="home"
-        component-name="video"
-        element-id="section-title"
-        default-value="Watch Our Story"
-        tag="h2"
-        class-name="section-title"
-        :rows="1"
-      />
-      <EditableText
-        page-name="home"
-        component-name="video"
-        element-id="section-description"
-        default-value="Learn more about our mission and values"
-        tag="p"
-        class-name="section-description"
-        :rows="2"
-      />
+      <EditableText page-name="home" component-name="video" element-id="section-title" default-value="Watch Our Story"
+        tag="h2" class-name="section-title" :rows="1" />
+      <EditableText page-name="home" component-name="video" element-id="section-description"
+        default-value="Learn more about our mission and values" tag="p" class-name="section-description" :rows="2" />
       <div class="video-wrapper">
-        <EditableVideo
-          page-name="home"
-          component-name="video"
-          element-id="main-video"
-          default-value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        />
+        <EditableVideo page-name="home" component-name="video" element-id="main-video"
+          default-value="https://www.youtube.com/watch?v=TRcReyRYIMg" />
       </div>
     </div>
   </section>

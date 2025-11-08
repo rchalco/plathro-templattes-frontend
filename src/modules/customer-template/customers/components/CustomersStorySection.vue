@@ -77,7 +77,7 @@ const stories: StoryConfig[] = [
     defaultTitle: 'I launched the web in one day, it was that easy!',
     defaultDescription:
       "From the first moment I used Platheo, I knew it was different. The interface is so intuitive that within 5 minutes I was already doing tasks that previously took me hours. That feeling of 'wow, this works!' is priceless. - Javier López, UX Designer",
-    defaultVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    defaultVideo: 'https://www.youtube.com/watch?v=TRcReyRYIMg',
   },
   {
     id: 'story-2',
@@ -97,7 +97,7 @@ const stories: StoryConfig[] = [
     defaultTitle: 'First Interaction with Customer Service',
     defaultDescription:
       '"My first meeting with the team made it clear they were genuinely interested in understanding my needs. Instead of trying to sell me, they listened and asked intelligent questions. That personalized attention from the very first minute immediately won me over." - Laura Mendoza, Small Business Owner',
-    defaultVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    defaultVideo: 'https://www.youtube.com/watch?v=TRcReyRYIMg',
   },
   {
     id: 'story-3',
@@ -117,7 +117,7 @@ const stories: StoryConfig[] = [
     defaultTitle: 'Great design, very professional.',
     defaultDescription:
       '"When I visited your website, everything radiated professionalism and trust. The clear messages, clean design, and ease of finding what I was looking for made me feel like I was in the right place. That first impression was decisive in my decision to contact you." - Roberto Silva, Potential Client',
-    defaultVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    defaultVideo: 'https://www.youtube.com/watch?v=TRcReyRYIMg',
   },
 ]
 </script>

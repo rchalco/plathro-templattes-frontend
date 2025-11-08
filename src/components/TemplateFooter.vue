@@ -118,21 +118,18 @@ const currentYear = computed(() => new Date().getFullYear());
 .site-footer-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px;
 }
 
 /* Footer content - single column on mobile */
 .site-footer-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
 }
 
 /* Footer blocks - better spacing on mobile */
 .site-footer-block {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 /* Title spacing */
@@ -143,7 +140,7 @@ const currentYear = computed(() => new Date().getFullYear());
 
 /* Links - larger touch targets for mobile */
 .footer-link {
-  padding: 8px 0;
+  padding: 2px 0;
   font-size: 14px;
   line-height: 1.5;
 }

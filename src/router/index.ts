@@ -6,6 +6,9 @@ import { useUserStore } from '@/modules/security/store/userStore'
 import Login from '../modules/security/views/AuthLogin.vue'
 import PerfilUser from '@/modules/security/views/PerfilUser.vue'
 
+// Questionnaire
+import QuestionnairePage from '@/modules/questionnaire/routes/QuestionnairePage.vue'
+
 // Customer template pages
 import HomePage from '@/modules/customer-template/home/routes/HomePage.vue'
 import AboutPage from '@/modules/customer-template/about/routes/AboutPage.vue'
@@ -37,6 +40,15 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Perfil de Usuario',
+    },
+  },
+  {
+    path: '/questionnaire',
+    name: 'questionnaire',
+    component: QuestionnairePage,
+    meta: {
+      preload: false,
+      title: 'Client Questionnaire',
     },
   },
   {
@@ -126,6 +138,7 @@ router.beforeEach(async (to, from, next) => {
   // Permitir acceso libre a rutas públicas
   const publicRoutes = [
     'login',
+    'questionnaire',
     'home',
     'about',
     'team',
