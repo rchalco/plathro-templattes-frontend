@@ -220,7 +220,7 @@ const handleGoogleLogin = async () => {
     console.log('Google login initiated')
 
     // Redirigir al home
-    router.push('/')
+    router.push('/home')
   } catch (error) {
     showError.value = true
     errorMessage.value = 'Oops! Something went wrong while submitting the form.'

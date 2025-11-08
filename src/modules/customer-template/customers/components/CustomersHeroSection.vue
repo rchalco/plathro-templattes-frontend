@@ -4,30 +4,20 @@
       <div class="inner-banner">
         <div class="inner-banner-text-wrap blog-2">
           <div>
-            <h1 data-w-id="937fb857-1208-1131-f5b4-97909876e4c0" style="opacity:0" class="heading-32">
-              <EditableText 
-                page-name="customers" 
-                component-name="hero" 
-                element-id="main-heading"
-                default-value="Customer Success Stories" 
-                tag="span"
-                :rows="1" 
-              />
+            <h1 data-w-id="937fb857-1208-1131-f5b4-97909876e4c0" class="heading-32">
+              <EditableText page-name="customers" component-name="hero" element-id="main-heading"
+                default-value="Customer Success Stories" tag="span" :rows="1" />
             </h1>
-            <p data-w-id="937fb857-1208-1131-f5b4-97909876e4c2" style="opacity:0" class="inner-banner-paragraph blog-2">
-              <EditableText 
-                page-name="customers" 
-                component-name="hero" 
-                element-id="description"
-                default-value="Discover how customers across industries increase agility, optimize costs, and accelerate innovation using Platheo" 
-                tag="span"
-                :rows="2" 
-              />
+            <p data-w-id="937fb857-1208-1131-f5b4-97909876e4c2" class="inner-banner-paragraph blog-2">
+              <EditableText page-name="customers" component-name="hero" element-id="description"
+                default-value="Discover how customers across industries increase agility, optimize costs, and accelerate innovation using Platheo"
+                tag="span" :rows="2" />
             </p>
           </div>
         </div>
         <div class="inner-labels-wrapper blog-2">
-          <div v-for="label in labels" :key="label.text" data-w-id="937fb857-1208-1131-f5b4-97909876e4d5" style="opacity:0" class="video-label inner-page">
+          <div v-for="label in labels" :key="label.text" data-w-id="937fb857-1208-1131-f5b4-97909876e4d5"
+            class="video-label inner-page">
             <img loading="lazy" height="16" alt="" :src="label.icon" :class="label.imgClass">
             <div :class="label.textClass">{{ label.text }}</div>
           </div>
@@ -47,5 +37,4 @@ const labels = [
 ]
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

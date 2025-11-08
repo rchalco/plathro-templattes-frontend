@@ -58,7 +58,7 @@
                   </div>
                 </div>
               </a>
-              <a href="/sign-in" class="secondary-button w-inline-block">
+              <a href="/login" class="secondary-button w-inline-block">
                 <div class="clip">
                   <div class="button-text-wrap-13">
                     <img loading="lazy" height="25" alt="" :src="iconCart" class="image-95">

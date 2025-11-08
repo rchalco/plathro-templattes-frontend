@@ -23,7 +23,10 @@
               </div>
               <div class="founder-text gray-text">
                 <EditableText page-name="team" component-name="founder" element-id="title"
-                  default-value="Director & CEO - Accounting, Payroll & Investor" tag="span" :rows="2" />
+                  default-value="Director & CEO" tag="span" :rows="2" />
+                <br />
+                <EditableText page-name="team" component-name="founder" element-id="title-2"
+                  default-value="Accounting, Payroll & Investor" tag="span" :rows="2" />
               </div>
             </div>
           </div>
@@ -118,14 +121,20 @@ const founderImage = new URL('../../../../assets/images/team_guillermo.jpg', imp
 }
 
 .large-text {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.3;
+  color: #000;
+  letter-spacing: -1.4px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.1em;
 }
 
 .founder-text {
-  font-size: 1rem;
-  line-height: 1.5;
+  color: #fff;
+  letter-spacing: -.28px;
+  font-size: 14px;
+  line-height: 1.5em;
 }
 
 /* Responsive */
