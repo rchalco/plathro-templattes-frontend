@@ -1,61 +1,23 @@
 <template>
   <section class="team-section">
     <div class="team-container">
-      <EditableText
-        page-name="team"
-        component-name="header"
-        element-id="title"
-        default-value="Meet Our Team"
-        tag="h1"
-        class-name="team-title"
-        :rows="1"
-      />
-      <EditableText
-        page-name="team"
-        component-name="header"
-        element-id="description"
-        default-value="Our talented team of professionals dedicated to your success"
-        tag="p"
-        class-name="team-description"
-        :rows="2"
-      />
+      <EditableText page-name="team" component-name="header" element-id="title" default-value="Meet Our Team" tag="h1"
+        class-name="team-title" :rows="1" />
+      <EditableText page-name="team" component-name="header" element-id="description"
+        default-value="Our talented team of professionals dedicated to your success" tag="p"
+        class-name="team-description" :rows="2" />
       <div class="team-grid">
         <div v-for="i in 6" :key="i" class="team-member">
-          <EditableImage
-            :page-name="'team'"
-            :component-name="'members'"
-            :element-id="`member-${i}-photo`"
-            :default-value="`https://via.placeholder.com/300x300?text=Member+${i}`"
-            :alt="`Team Member ${i}`"
-            img-class="member-photo"
-          />
-          <EditableText
-            :page-name="'team'"
-            :component-name="'members'"
-            :element-id="`member-${i}-name`"
-            :default-value="`Team Member ${i}`"
-            tag="h3"
-            class-name="member-name"
-            :rows="1"
-          />
-          <EditableText
-            :page-name="'team'"
-            :component-name="'members'"
-            :element-id="`member-${i}-role`"
-            :default-value="`Position ${i}`"
-            tag="p"
-            class-name="member-role"
-            :rows="1"
-          />
-          <EditableText
-            :page-name="'team'"
-            :component-name="'members'"
-            :element-id="`member-${i}-bio`"
-            :default-value="`Brief bio about team member ${i} and their expertise in the field.`"
-            tag="p"
-            class-name="member-bio"
-            :rows="3"
-          />
+          <EditableImage :page-name="'team'" :component-name="'members'" :element-id="`member-${i}-photo`"
+            :default-value="`https://via.placeholder.com/300x300?text=Member+${i}`" :alt="`Team Member ${i}`"
+            img-class="member-photo" />
+          <EditableText :page-name="'team'" :component-name="'members'" :element-id="`member-${i}-name`"
+            :default-value="`Team Member ${i}`" tag="h3" class-name="member-name" :rows="1" />
+          <EditableText :page-name="'team'" :component-name="'members'" :element-id="`member-${i}-role`"
+            :default-value="`Position ${i}`" tag="p" class-name="member-role" :rows="1" />
+          <EditableText :page-name="'team'" :component-name="'members'" :element-id="`member-${i}-bio`"
+            :default-value="`Brief bio about team member ${i} and their expertise in the field.`" tag="p"
+            class-name="member-bio" :rows="3" />
         </div>
       </div>
     </div>

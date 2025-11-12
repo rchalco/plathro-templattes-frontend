@@ -93,10 +93,17 @@ const teamMembers = [
 .team-member-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 300px;
   overflow: hidden;
   border-radius: 12px;
   background-color: #f5f5f5;
+}
+
+/* Asegurar que todos los divs hijos del EditableImage tomen el 100% de altura */
+.team-member-image-container :deep(> div) {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 /* Asegurar que la imagen ocupe todo el contenedor sin deformarse */
@@ -141,6 +148,7 @@ const teamMembers = [
   }
 
   .team-member-image-container {
+    height: 280px;
     border-radius: 10px;
   }
 
@@ -164,9 +172,8 @@ const teamMembers = [
   }
 
   .team-member-image-container {
+    height: 350px;
     border-radius: 10px;
-    aspect-ratio: 4 / 5;
-    /* Imagen más vertical en móvil */
   }
 
   .team-member-name {
@@ -190,6 +197,7 @@ const teamMembers = [
   }
 
   .team-member-image-container {
+    height: 320px;
     border-radius: 8px;
   }
 
