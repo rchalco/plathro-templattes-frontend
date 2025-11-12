@@ -45,6 +45,9 @@
             <!-- Edit Mode Toggle -->
             <EditModeToggle />
 
+            <!-- Save Changes Button -->
+            <SaveChangesButton />
+
           </div>
         </nav>
 
@@ -67,6 +70,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import EditModeToggle from './EditModeToggle.vue'
+import SaveChangesButton from './SaveChangesButton.vue'
 
 const isMobileMenuOpen = ref(false)
 
