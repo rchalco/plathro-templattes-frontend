@@ -225,9 +225,9 @@ const handleGoogleLogin = async () => {
 
     showSuccess.value = true
 
-    // Redirect to questionnaire after successful login
+    // Redirect to home after successful login
     setTimeout(() => {
-      router.push('/questionnaire')
+      router.push('/home')
     }, 1000)
   } catch (error) {
     showError.value = true

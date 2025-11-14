@@ -110,7 +110,7 @@ const labels = [
 
   .services-video-wrapper {
     width: 45%;
-    margin-left: -30px;
+    margin-left: -80px;
     border-radius: 16px;
   }
 }
@@ -122,7 +122,7 @@ const labels = [
   }
 
   .services-video-wrapper {
-    margin-left: -40px;
+    margin-left: -120px;
     border-radius: 16px;
   }
 }
