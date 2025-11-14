@@ -227,7 +227,7 @@ const handleGoogleLogin = async () => {
 
     // Redirect to home after successful login
     setTimeout(() => {
-      router.push('/home')
+      router.push('/affiliates')
     }, 1000)
   } catch (error) {
     showError.value = true

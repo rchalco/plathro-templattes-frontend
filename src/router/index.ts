@@ -9,6 +9,9 @@ import PerfilUser from '@/modules/security/views/PerfilUser.vue'
 // Questionnaire
 import QuestionnairePage from '@/modules/questionnaire/routes/QuestionnairePage.vue'
 
+// Control Panel
+import AffiliatesPage from '@/modules/controlpanel/pages/AffiliatesPage.vue'
+
 // Customer template pages
 import HomePage from '@/modules/customer-template/home/routes/HomePage.vue'
 import AboutPage from '@/modules/customer-template/about/routes/AboutPage.vue'
@@ -49,6 +52,16 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Client Questionnaire',
+    },
+  },
+  {
+    path: '/affiliates',
+    name: 'affiliates',
+    component: AffiliatesPage,
+    meta: {
+      preload: false,
+      title: 'Affiliates Dashboard',
+      requiresAuth: true,
     },
   },
   {
@@ -138,6 +151,7 @@ router.beforeEach(async (to, from, next) => {
   // Permitir acceso libre a rutas públicas
   const publicRoutes = [
     'login',
+    'affiliates',
     'questionnaire',
     'home',
     'about',
