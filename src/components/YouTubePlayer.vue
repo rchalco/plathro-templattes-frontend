@@ -1,14 +1,8 @@
 <template>
   <div class="youtube-player">
-    <iframe
-      v-if="videoId"
-      :src="`https://www.youtube.com/embed/${videoId}`"
-      :width="width"
-      :height="height"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+    <iframe v-if="videoId" :src="`https://www.youtube.com/embed/${videoId}`" :width="width" :height="height"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
     <div v-else class="no-video">
       <p>No video available</p>
     </div>
@@ -34,11 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
 const videoId = computed(() => {
   if (!props.videoUrl) return null
 
-  // Handle different YouTube URL formats
+  // Handle different YouTube URL formats (including shorts)
   const patterns = [
     /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/,
     /(?:https?:\/\/)?(?:www\.)?youtu\.be\/([^?]+)/,
     /(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([^?]+)/,
+    /(?:https?:\/\/)?(?:www\.)?youtube\.com\/shorts\/([^?]+)/,
   ]
 
   for (const pattern of patterns) {

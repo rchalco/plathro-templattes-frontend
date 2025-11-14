@@ -27,7 +27,7 @@
       </div>
 
       <div class="hint-text">
-        Supported formats: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
+        Supported formats: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID, youtube.com/shorts/ID
       </div>
     </div>
   </div>
@@ -63,11 +63,12 @@ const validationError = ref('')
 const isSaving = ref(false)
 const originalValue = ref('')
 
-// YouTube URL validation patterns
+// YouTube URL validation patterns (including shorts)
 const youtubePatterns = [
   /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,
   /(?:https?:\/\/)?(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]{11})/,
   /(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+  /(?:https?:\/\/)?(?:www\.)?youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
 ]
 
 // Validate YouTube URL
