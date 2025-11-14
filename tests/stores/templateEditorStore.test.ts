@@ -67,4 +67,30 @@ describe('templateEditorStore', () => {
       expect(store.hasBeenEditedOnce).toBe(false)
     })
   })
+
+  describe('domain name storage', () => {
+    it('should initialize with empty domain name', () => {
+      const store = useTemplateEditorStore()
+      
+      expect(store.savedDomainName).toBe('')
+    })
+
+    it('should store domain name when setDomainName is called', () => {
+      const store = useTemplateEditorStore()
+      
+      store.setDomainName('my-company')
+      
+      expect(store.savedDomainName).toBe('my-company')
+    })
+
+    it('should update domain name when setDomainName is called again', () => {
+      const store = useTemplateEditorStore()
+      
+      store.setDomainName('first-domain')
+      expect(store.savedDomainName).toBe('first-domain')
+      
+      store.setDomainName('second-domain')
+      expect(store.savedDomainName).toBe('second-domain')
+    })
+  })
 })

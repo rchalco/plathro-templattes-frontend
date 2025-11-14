@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasBeenEditedOnce" class="save-changes-wrapper">
     <button class="save-changes-button" @click="openModal">
-      Guardar Cambios
+      Save Content
     </button>
     <SaveChangesModal :is-open="isModalOpen" @close="closeModal" />
   </div>

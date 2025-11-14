@@ -4,6 +4,7 @@ import { ref } from 'vue'
 export const useTemplateEditorStore = defineStore('templateEditor', () => {
   const isEditMode = ref(false)
   const hasBeenEditedOnce = ref(false)
+  const savedDomainName = ref('')
 
   const toggleEditMode = () => {
     isEditMode.value = !isEditMode.value
@@ -19,10 +20,16 @@ export const useTemplateEditorStore = defineStore('templateEditor', () => {
     }
   }
 
+  const setDomainName = (domainName: string) => {
+    savedDomainName.value = domainName
+  }
+
   return {
     isEditMode,
     hasBeenEditedOnce,
+    savedDomainName,
     toggleEditMode,
     setEditMode,
+    setDomainName,
   }
 })

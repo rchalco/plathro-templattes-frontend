@@ -2,27 +2,27 @@
   <div v-if="isOpen" class="modal-overlay" @click.self="close">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Guardar Cambios</h2>
+        <h2>Save Content</h2>
         <button class="close-button" @click="close" aria-label="Close">×</button>
       </div>
       
       <form @submit.prevent="handleSubmit" class="modal-body">
         <div class="form-group">
-          <label for="subpath">Nombre del Subportal</label>
+          <label for="subpath">Subportal Name</label>
           <div class="subpath-input-wrapper">
             <span class="url-prefix">www.platheo.com/</span>
             <input
               id="subpath"
               v-model="subpath"
               type="text"
-              placeholder="nombre-subportal"
+              placeholder="subportal-name"
               required
               pattern="[a-z0-9\-]+"
-              title="Solo letras minúsculas, números y guiones"
+              title="Only lowercase letters, numbers and hyphens"
               class="subpath-input"
             />
           </div>
-          <small class="help-text">Solo letras minúsculas, números y guiones</small>
+          <small class="help-text">Only lowercase letters, numbers and hyphens</small>
         </div>
 
         <div class="form-group">
@@ -32,16 +32,16 @@
               type="checkbox"
               class="toggle-checkbox"
             />
-            <span class="toggle-text">Publicar ahora</span>
+            <span class="toggle-text">Publish now</span>
           </label>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="close">
-            Cancelar
+            Cancel
           </button>
           <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
-            {{ isSubmitting ? 'Enviando...' : 'Guardar' }}
+            {{ isSubmitting ? 'Sending...' : 'Save' }}
           </button>
         </div>
       </form>
@@ -50,9 +50,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import { TemplateContentService } from '@/services/templateContentService'
+import { useTemplateEditorStore } from '@/stores/templateEditorStore'
 
 interface Props {
   isOpen: boolean
@@ -64,15 +66,23 @@ const emit = defineEmits<{
 }>()
 
 const router = useRouter()
+const editorStore = useTemplateEditorStore()
+const { savedDomainName } = storeToRefs(editorStore)
 
 const subpath = ref('')
 const publishNow = ref(false)
 const isSubmitting = ref(false)
 
+// Load saved domain name when modal opens
+watch(() => props.isOpen, (newValue) => {
+  if (newValue && savedDomainName.value) {
+    subpath.value = savedDomainName.value
+  }
+})
+
 const close = () => {
   emit('close')
-  // Reset form
-  subpath.value = ''
+  // Don't reset form anymore to preserve the domain name
   publishNow.value = false
 }
 
@@ -91,6 +101,9 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
+    // Save domain name to store
+    editorStore.setDomainName(subpath.value.trim())
+
     // Get the JSON from localStorage
     const content = TemplateContentService.loadContent()
     const jsonData = JSON.stringify(content)
@@ -113,7 +126,7 @@ const handleSubmit = async () => {
     close()
   } catch (error) {
     console.error('Error saving changes:', error)
-    alert('Error al guardar los cambios. Por favor, intente nuevamente.')
+    alert('Error saving changes. Please try again.')
   } finally {
     isSubmitting.value = false
   }
