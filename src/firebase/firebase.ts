@@ -8,13 +8,13 @@ import { getAuth } from 'firebase/auth'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyDIBWDEV8cnGKcjsaeXgjBblDtHByVVLoQ',
-  authDomain: 'jato-app-b2b3d.firebaseapp.com',
-  projectId: 'jato-app-b2b3d',
-  storageBucket: 'jato-app-b2b3d.firebasestorage.app',
-  messagingSenderId: '88783019415',
-  appId: '1:88783019415:web:ec2cbcd7f1a408f139b8d2',
-  measurementId: 'G-JHF70FZC27',
+  apiKey: 'AIzaSyCQbxZlIwZNLqbOau5ryo5UYVhpLi_7LrA',
+  authDomain: 'platheo-3fd58.firebaseapp.com',
+  // authDomain: 'app.platheo.com',
+  projectId: 'platheo-3fd58',
+  storageBucket: 'platheo-3fd58.firebasestorage.app',
+  messagingSenderId: '207779492057',
+  appId: '1:207779492057:web:c404461e0b1d48388dcec8',
 }
 
 // Initialize Firebase

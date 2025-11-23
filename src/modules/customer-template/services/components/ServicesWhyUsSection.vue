@@ -37,15 +37,21 @@ const cards = ref<Card[]>([
 ])
 
 const updateCardImage = (index: number, value: string) => {
-  cards.value[index].image = value
+  if (cards.value[index]) {
+    cards.value[index].image = value
+  }
 }
 
 const updateCardTitle = (index: number, value: string) => {
-  cards.value[index].title = value
+  if (cards.value[index]) {
+    cards.value[index].title = value
+  }
 }
 
 const updateCardDescription = (index: number, value: string) => {
-  cards.value[index].description = value
+  if (cards.value[index]) {
+    cards.value[index].description = value
+  }
 }
 </script>
 

@@ -44,6 +44,7 @@ export async function loginWithProvider(providerKey: 'google' | 'facebook' | 'ap
   //console.log('ID Token:', idToken)
   request.token = idToken
   // Enviar token al backend
+  console.log('Enviando token al backend para verificación...', request)
   const response = await api.post<VerifyCredentialOAuthOutput>(
     '/VerifyCredentialOAuthUseCase',
     request,
