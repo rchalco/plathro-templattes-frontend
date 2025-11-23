@@ -72,7 +72,8 @@ import EditableText from './EditableText.vue';
 const overviewLinks = [
   { path: '/team', label: 'Team' },
   { path: '/about', label: 'About us' },
-  { path: '/contact', label: 'Contact us' }
+  { path: '/contact', label: 'Contact us' },
+  { path: '/customers', label: 'Customers' }
 ];
 
 const legalLinks = [

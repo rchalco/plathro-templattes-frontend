@@ -1,17 +1,20 @@
 <template>
-  <div class="home-page">
-    <TemplateHeader />
-    <main class="main-content">
-      <HeroSection />
-      <HomeMessage />
-      <HomeSectionTestimony />
-      <HomeLogosMarquee />
-    </main>
-    <TemplateFooter />
-  </div>
+  <MasterLayout>
+    <div class="home-page">
+      <TemplateHeader />
+      <main class="main-content">
+        <HeroSection />
+        <HomeMessage />
+        <HomeSectionTestimony class="homeSectionTestimony" />
+        <HomeLogosMarquee />
+      </main>
+      <TemplateFooter />
+    </div>
+  </MasterLayout>
 </template>
 
 <script setup lang="ts">
+import MasterLayout from '@/components/MasterLayout.vue'
 import TemplateHeader from '@/components/TemplateHeader.vue'
 import TemplateFooter from '@/components/TemplateFooter.vue'
 import HeroSection from '../components/HeroSection.vue'
@@ -21,6 +24,10 @@ import HomeLogosMarquee from '../components/HomeLogosMarquee.vue'
 </script>
 
 <style scoped>
+.homeSectionTestimony {
+  margin-top: 50px;
+}
+
 .home-page {
   min-height: 100vh;
   display: flex;

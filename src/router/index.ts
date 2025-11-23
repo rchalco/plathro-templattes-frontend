@@ -10,7 +10,9 @@ import PerfilUser from '@/modules/security/views/PerfilUser.vue'
 import QuestionnairePage from '@/modules/questionnaire/routes/QuestionnairePage.vue'
 
 // Control Panel
-import AffiliatesPage from '@/modules/controlpanel/pages/AffiliatesPage.vue'
+import DashboardPage from '@/modules/controlpanel/pages/DashboardPage.vue'
+import UnderConstructionPage from '@/modules/controlpanel/pages/UnderConstructionPage.vue'
+import ModuleListPage from '@/modules/controlpanel/pages/ModuleListPage.vue'
 
 // Customer template pages
 import HomePage from '@/modules/customer-template/home/routes/HomePage.vue'
@@ -37,6 +39,96 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardPage,
+    meta: {
+      preload: false,
+      title: 'Dashboard',
+    },
+  },
+  {
+    path: '/under-construction',
+    name: 'under-construction',
+    component: UnderConstructionPage,
+    meta: {
+      preload: false,
+      title: 'Under Construction',
+    },
+  },
+  {
+    path: '/corporate-site',
+    name: 'corporate-site',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'Corporate Site',
+    },
+  },
+  {
+    path: '/ai-appointments',
+    name: 'ai-appointments',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'AI Appointments',
+    },
+  },
+  {
+    path: '/checkout-funnels',
+    name: 'checkout-funnels',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'Checkout Funnels',
+    },
+  },
+  {
+    path: '/referrals',
+    name: 'referrals',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'Referrals System',
+    },
+  },
+  {
+    path: '/affiliates-system',
+    name: 'affiliates-system',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'Affiliates System',
+    },
+  },
+  {
+    path: '/suppliers',
+    name: 'suppliers',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'Suppliers System',
+    },
+  },
+  {
+    path: '/jv-partners',
+    name: 'jv-partners',
+    component: ModuleListPage,
+    meta: {
+      preload: false,
+      title: 'JV Partners System',
+    },
+  },
+  {
+    path: '/billing',
+    name: 'billing',
+    component: UnderConstructionPage,
+    meta: {
+      preload: false,
+      title: 'Billing',
+    },
+  },
+  {
     path: '/perfil',
     name: 'perfil-user',
     component: PerfilUser,
@@ -52,16 +144,6 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Client Questionnaire',
-    },
-  },
-  {
-    path: '/affiliates',
-    name: 'affiliates',
-    component: AffiliatesPage,
-    meta: {
-      preload: false,
-      title: 'Affiliates Dashboard',
-      requiresAuth: true,
     },
   },
   {
@@ -151,7 +233,16 @@ router.beforeEach(async (to, from, next) => {
   // Permitir acceso libre a rutas públicas
   const publicRoutes = [
     'login',
-    'affiliates',
+    'dashboard',
+    'under-construction',
+    'corporate-site',
+    'ai-appointments',
+    'checkout-funnels',
+    'referrals',
+    'affiliates-system',
+    'suppliers',
+    'jv-partners',
+    'billing',
     'questionnaire',
     'home',
     'about',

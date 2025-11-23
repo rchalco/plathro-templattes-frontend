@@ -17,7 +17,7 @@
 
               <div class="padding-bottom padding-medium"></div>
 
-              <router-link to="/sign-in" class="button-testimonio w-button">
+              <router-link to="/" class="button-testimonio w-button">
                 CAD&nbsp;200.00 Gift Card
               </router-link>
               <img sizes="129.8203125px" height="82" alt="" src="/src/assets/images/gdpr-ccpa.png" loading="lazy"

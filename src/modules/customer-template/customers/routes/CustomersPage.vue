@@ -1,15 +1,18 @@
 <template>
-  <div class="customers-page">
-    <TemplateHeader />
-    <main class="main-content">
-      <CustomersHeroSection />
-      <CustomersStorySection />
-    </main>
-    <TemplateFooter />
-  </div>
+  <MasterLayout>
+    <div class="customers-page">
+      <TemplateHeader />
+      <main class="main-content">
+        <CustomersHeroSection />
+        <CustomersStorySection />
+      </main>
+      <TemplateFooter />
+    </div>
+  </MasterLayout>
 </template>
 
 <script setup lang="ts">
+import MasterLayout from '@/components/MasterLayout.vue'
 import TemplateHeader from '@/components/TemplateHeader.vue'
 import TemplateFooter from '@/components/TemplateFooter.vue'
 import CustomersHeroSection from '../components/CustomersHeroSection.vue'
