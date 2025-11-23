@@ -1,6 +1,15 @@
 <template>
   <div class="container">
-    <div class="column-wrap">
+    <!-- Mobile Warning Overlay -->
+    <div v-if="isMobileDevice" class="mobile-warning-overlay">
+      <div class="mobile-warning-content">
+        <i class="bi bi-display"></i>
+        <h2>Desktop Required</h2>
+        <p>This application requires a desktop environment for optimal functionality. Please access this site from a desktop or laptop computer.</p>
+      </div>
+    </div>
+
+    <div class="column-wrap" :class="{ 'blur-content': isMobileDevice }">
       <!-- Left Column - Carousel -->
       <div class="column-left">
         <div class="slider w-slider" role="region" aria-label="carousel">
@@ -154,11 +163,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onUnmounted } from 'vue'
+import { ref, onUnmounted, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { loginWithProvider } from '@/firebase/useFirebaseAuth'
 
 const router = useRouter()
+
+// Mobile detection
+const isMobileDevice = ref(false)
+
+onMounted(() => {
+  // Check if device is mobile
+  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
+  const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())
+  const isSmallScreen = window.innerWidth < 1024
+  
+  isMobileDevice.value = isMobile || isSmallScreen
+})
 
 // Carousel slides data
 // Use import.meta.url + new URL(...) so Vite includes these images in the build output
@@ -225,9 +246,9 @@ const handleGoogleLogin = async () => {
 
     showSuccess.value = true
 
-    // Redirect to home after successful login
+    // Redirect to dashboard after successful login
     setTimeout(() => {
-      router.push('/affiliates')
+      router.push('/dashboard')
     }, 1000)
   } catch (error) {
     showError.value = true
@@ -261,6 +282,50 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* Mobile Warning Overlay */
+.mobile-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.mobile-warning-content {
+  text-align: center;
+  color: white;
+  padding: 40px;
+  max-width: 500px;
+}
+
+.mobile-warning-content i {
+  font-size: 80px;
+  margin-bottom: 24px;
+  color: #667eea;
+}
+
+.mobile-warning-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.mobile-warning-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.blur-content {
+  filter: blur(10px);
+  pointer-events: none;
+}
+
 /* Responsive Layout - Login primero en móviles */
 .column-wrap {
   display: flex;

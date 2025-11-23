@@ -39,7 +39,7 @@
 
         <div class="cards-grid">
           <div
-            v-for="item in menuItems"
+            v-for="item in cardItems"
             :key="item.path"
             class="site-card"
             @click="navigateTo(item.path)"
@@ -51,7 +51,7 @@
               <h3>{{ item.label }}</h3>
               <p class="card-description">{{ item.description }}</p>
               <button class="card-action">
-                {{ item.path === '/home' ? 'Edit Site' : 'View Details' }}
+                View Details
               </button>
             </div>
           </div>
@@ -93,10 +93,11 @@ const userInitials = computed(() => {
 const menuItems = [
   {
     label: 'Corporate Site',
-    path: '/home',
+    path: '/corporate-site',
     icon: 'bi bi-building',
     image: homeDecor1,
     description: 'Manage your corporate website and landing pages',
+    showCard: true,
   },
   {
     label: 'AI Appointments',
@@ -104,6 +105,7 @@ const menuItems = [
     icon: 'bi bi-calendar-check',
     image: homeDecor2,
     description: 'AI-powered appointment scheduling system',
+    showCard: true,
   },
   {
     label: 'Checkout Funnels',
@@ -111,6 +113,7 @@ const menuItems = [
     icon: 'bi bi-cart-check',
     image: homeDecor3,
     description: 'Optimize your sales funnels and checkout process',
+    showCard: true,
   },
   {
     label: 'Referrals System',
@@ -118,6 +121,7 @@ const menuItems = [
     icon: 'bi bi-people',
     image: meetingImg,
     description: 'Track and manage customer referrals',
+    showCard: true,
   },
   {
     label: 'Affiliates System',
@@ -125,6 +129,7 @@ const menuItems = [
     icon: 'bi bi-share',
     image: product12,
     description: 'Manage your affiliate marketing program',
+    showCard: true,
   },
   {
     label: 'Suppliers System',
@@ -132,6 +137,7 @@ const menuItems = [
     icon: 'bi bi-truck',
     image: bgSmartHome1,
     description: 'Supplier and inventory management',
+    showCard: true,
   },
   {
     label: 'JV Partners System',
@@ -139,31 +145,29 @@ const menuItems = [
     icon: 'bi bi-handshake',
     image: bgSmartHome2,
     description: 'Joint venture partnerships management',
+    showCard: true,
   },
   {
     label: 'Billing',
     path: '/billing',
     icon: 'bi bi-credit-card',
-    image: bgPricing,
     description: 'Billing and payment management',
+    showCard: false, // No card, direct link in sidebar
   },
   {
     label: 'Account',
     path: '/perfil',
     icon: 'bi bi-person-circle',
-    image: team1,
     description: 'Manage your account settings',
+    showCard: false, // No card, direct link in sidebar
   },
 ]
 
+// Filter items to show as cards
+const cardItems = menuItems.filter(item => item.showCard)
+
 const navigateTo = (path: string) => {
-  if (path === '/home') {
-    router.push(path)
-  } else if (path === '/perfil') {
-    router.push(path)
-  } else {
-    router.push('/under-construction')
-  }
+  router.push(path)
 }
 </script>
 

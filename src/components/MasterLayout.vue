@@ -7,16 +7,38 @@
       </div>
 
       <nav class="sidebar-nav">
-        <router-link
-          v-for="item in menuItems"
-          :key="item.path"
-          :to="item.path"
-          class="nav-item"
-          active-class="nav-item-active"
-        >
-          <i :class="item.icon"></i>
-          <span>{{ item.label }}</span>
-        </router-link>
+        <!-- Edit Mode Toggle -->
+        <div class="sidebar-section">
+          <EditModeToggle />
+        </div>
+
+        <!-- Save Changes Button -->
+        <div class="sidebar-section">
+          <SaveChangesButton />
+        </div>
+
+        <!-- Menu Options -->
+        <div class="sidebar-section">
+          <div class="section-title">Menu Options</div>
+          <div class="menu-option">
+            <label class="option-label">
+              <input type="checkbox" v-model="menuOptions.services" @change="updateMenuOptions" />
+              <span>Services</span>
+            </label>
+          </div>
+          <div class="menu-option">
+            <label class="option-label">
+              <input type="checkbox" v-model="menuOptions.team" @change="updateMenuOptions" />
+              <span>Team</span>
+            </label>
+          </div>
+          <div class="menu-option">
+            <label class="option-label">
+              <input type="checkbox" v-model="menuOptions.customers" @change="updateMenuOptions" />
+              <span>Customers</span>
+            </label>
+          </div>
+        </div>
       </nav>
 
       <div class="sidebar-footer">
@@ -29,14 +51,7 @@
 
     <!-- Main Content Area -->
     <div class="layout-main">
-      <!-- Top Bar -->
-      <header class="layout-header">
-        <button class="back-button" @click="goToDashboard" title="Back to Dashboard">
-          <i class="bi bi-arrow-left"></i>
-        </button>
-      </header>
-
-      <!-- Page Content -->
+      <!-- Page Content (no header) -->
       <main class="layout-content">
         <slot></slot>
       </main>
@@ -45,18 +60,23 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import EditModeToggle from './EditModeToggle.vue'
+import SaveChangesButton from './SaveChangesButton.vue'
 
 const router = useRouter()
 
-const menuItems = [
-  { path: '/home', label: 'Home', icon: 'bi bi-house' },
-  { path: '/about', label: 'About', icon: 'bi bi-info-circle' },
-  { path: '/services', label: 'Services', icon: 'bi bi-briefcase' },
-  { path: '/team', label: 'Team', icon: 'bi bi-people' },
-  { path: '/customers', label: 'Customers', icon: 'bi bi-star' },
-  { path: '/contact', label: 'Contact', icon: 'bi bi-envelope' },
-]
+const menuOptions = ref({
+  services: true,
+  team: true,
+  customers: true
+})
+
+const updateMenuOptions = () => {
+  // TODO: Implement menu options update logic
+  console.log('Menu options updated:', menuOptions.value)
+}
 
 const goToDashboard = () => {
   router.push('/dashboard')
@@ -98,36 +118,54 @@ const goToDashboard = () => {
 .sidebar-nav {
   flex: 1;
   padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.nav-item {
+.sidebar-section {
+  border-bottom: 1px solid #404040;
+  padding-bottom: 16px;
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  color: #b0b0b0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 0 8px;
+}
+
+.menu-option {
+  margin-bottom: 8px;
+}
+
+.option-label {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 16px;
-  color: #b0b0b0;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-bottom: 6px;
-  transition: all 0.2s ease;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 10px 12px;
+  color: #e0e0e0;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-.nav-item:hover {
+.option-label:hover {
   background-color: #3a3a3a;
-  color: #ffffff;
 }
 
-.nav-item-active {
-  background-color: #4a4a4a;
-  color: #ffffff;
-}
-
-.nav-item i {
-  font-size: 20px;
-  width: 24px;
-  text-align: center;
+.option-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
 }
 
 .sidebar-footer {
@@ -167,38 +205,6 @@ const goToDashboard = () => {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.layout-header {
-  background-color: #ffffff;
-  padding: 16px 24px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  align-items: center;
-}
-
-.back-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: 1px solid #d0d0d0;
-  border-radius: 8px;
-  color: #4a4a4a;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.back-button:hover {
-  background-color: #f5f5f5;
-  border-color: #4a4a4a;
-  color: #1a1a1a;
-}
-
-.back-button i {
-  font-size: 18px;
 }
 
 .layout-content {
