@@ -44,7 +44,6 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Dashboard',
-      requiresAuth: true,
     },
   },
   {

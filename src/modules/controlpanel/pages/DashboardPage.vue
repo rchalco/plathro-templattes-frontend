@@ -66,6 +66,17 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/modules/security/store/userStore'
 
+// Import images
+import homeDecor1 from '@/assets/img/home-decor-1.jpg'
+import homeDecor2 from '@/assets/img/home-decor-2.jpg'
+import homeDecor3 from '@/assets/img/home-decor-3.jpg'
+import meetingImg from '@/assets/img/meeting.jpg'
+import product12 from '@/assets/img/product-12.jpg'
+import bgSmartHome1 from '@/assets/img/bg-smart-home-1.jpg'
+import bgSmartHome2 from '@/assets/img/bg-smart-home-2.jpg'
+import bgPricing from '@/assets/img/bg-pricing.jpg'
+import team1 from '@/assets/img/team-1.jpg'
+
 const router = useRouter()
 const userStore = useUserStore()
 
@@ -84,63 +95,63 @@ const menuItems = [
     label: 'Corporate Site',
     path: '/home',
     icon: 'bi bi-building',
-    image: '/src/assets/img/home-decor-1.jpg',
+    image: homeDecor1,
     description: 'Manage your corporate website and landing pages',
   },
   {
     label: 'AI Appointments',
     path: '/ai-appointments',
     icon: 'bi bi-calendar-check',
-    image: '/src/assets/img/home-decor-2.jpg',
+    image: homeDecor2,
     description: 'AI-powered appointment scheduling system',
   },
   {
     label: 'Checkout Funnels',
     path: '/checkout-funnels',
     icon: 'bi bi-cart-check',
-    image: '/src/assets/img/home-decor-3.jpg',
+    image: homeDecor3,
     description: 'Optimize your sales funnels and checkout process',
   },
   {
     label: 'Referrals System',
     path: '/referrals',
     icon: 'bi bi-people',
-    image: '/src/assets/img/meeting.jpg',
+    image: meetingImg,
     description: 'Track and manage customer referrals',
   },
   {
     label: 'Affiliates System',
     path: '/affiliates-system',
     icon: 'bi bi-share',
-    image: '/src/assets/img/product-12.jpg',
+    image: product12,
     description: 'Manage your affiliate marketing program',
   },
   {
     label: 'Suppliers System',
     path: '/suppliers',
     icon: 'bi bi-truck',
-    image: '/src/assets/img/bg-smart-home-1.jpg',
+    image: bgSmartHome1,
     description: 'Supplier and inventory management',
   },
   {
     label: 'JV Partners System',
     path: '/jv-partners',
     icon: 'bi bi-handshake',
-    image: '/src/assets/img/bg-smart-home-2.jpg',
+    image: bgSmartHome2,
     description: 'Joint venture partnerships management',
   },
   {
     label: 'Billing',
     path: '/billing',
     icon: 'bi bi-credit-card',
-    image: '/src/assets/img/bg-pricing.jpg',
+    image: bgPricing,
     description: 'Billing and payment management',
   },
   {
     label: 'Account',
     path: '/perfil',
     icon: 'bi bi-person-circle',
-    image: '/src/assets/img/team-1.jpg',
+    image: team1,
     description: 'Manage your account settings',
   },
 ]
