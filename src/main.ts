@@ -6,6 +6,7 @@ import router from './router'
 
 import './assets/css/nucleo-icons.css'
 import './assets/css/nucleo-svg.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import './assets/js/nav-pills.js'
 import './assets/js/ripple-effect.js'

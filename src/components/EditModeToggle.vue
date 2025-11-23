@@ -63,11 +63,11 @@ const toggleEditMode = () => {
   transition: 0.4s;
 }
 
-.toggle-switch input:checked + .slider {
+.toggle-switch input:checked+.slider {
   background-color: #2196f3;
 }
 
-.toggle-switch input:checked + .slider:before {
+.toggle-switch input:checked+.slider:before {
   transform: translateX(24px);
 }
 
@@ -75,6 +75,6 @@ const toggleEditMode = () => {
   margin-left: 10px;
   font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: #e4dddd;
 }
 </style>

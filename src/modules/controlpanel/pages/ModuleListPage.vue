@@ -27,23 +27,23 @@
         </header>
 
         <div class="items-list">
-          <div
-            v-for="item in items"
-            :key="item.id"
-            class="item-card"
-          >
+          <div v-for="item in items" :key="item.id" class="item-card">
             <div class="item-content">
+              <div class="item-icon" v-if="item.icon || item.image">
+                <i v-if="item.icon" :class="item.icon" class="item-main-icon"></i>
+                <img v-else-if="item.image" :src="item.image" :alt="item.name" class="item-main-image" />
+              </div>
               <div class="item-info">
                 <h3>{{ item.name }}</h3>
                 <p class="item-description">{{ item.description }}</p>
               </div>
               <div class="item-actions">
-                <button class="icon-button" @click="editItem(item)" title="Edit">
+                <!-- <button class="icon-button" @click="editItem(item)" title="Edit">
                   <i class="bi bi-pencil"></i>
-                </button>
-                <button class="icon-button danger" @click="deleteItem(item)" title="Delete">
+                </button> -->
+                <!-- <button class="icon-button danger" @click="deleteItem(item)" title="Delete">
                   <i class="bi bi-trash"></i>
-                </button>
+                </button> -->
                 <button class="view-button" @click="viewItem(item)">
                   View
                 </button>
@@ -73,6 +73,8 @@ interface Item {
   name: string
   description: string
   moduleType: string
+  icon?: string
+  image?: string
 }
 
 const moduleName = computed(() => {
@@ -97,7 +99,8 @@ onMounted(() => {
         id: 'default',
         name: 'Default Template Site',
         description: 'Your main corporate website template',
-        moduleType: 'corporate-site'
+        moduleType: 'corporate-site',
+        icon: 'bi-building'
       }
     ]
   }
@@ -276,6 +279,29 @@ const viewItem = (item: Item) => {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+}
+
+.item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+}
+
+.item-main-icon {
+  font-size: 28px;
+  color: #495057;
+}
+
+.item-main-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .item-info {

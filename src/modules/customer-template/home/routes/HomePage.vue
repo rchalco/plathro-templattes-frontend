@@ -5,7 +5,7 @@
       <main class="main-content">
         <HeroSection />
         <HomeMessage />
-        <HomeSectionTestimony />
+        <HomeSectionTestimony class="homeSectionTestimony" />
         <HomeLogosMarquee />
       </main>
       <TemplateFooter />
@@ -24,6 +24,10 @@ import HomeLogosMarquee from '../components/HomeLogosMarquee.vue'
 </script>
 
 <style scoped>
+.homeSectionTestimony {
+  margin-top: 50px;
+}
+
 .home-page {
   min-height: 100vh;
   display: flex;
