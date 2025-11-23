@@ -37,11 +37,6 @@
 
             <div class="nav-divider-2"></div>
 
-
-            <router-link to="/login" class="button-white-menu" @click="closeMobileMenu">
-              Sign In
-            </router-link>
-
             <!-- Edit Mode Toggle -->
             <EditModeToggle />
 
@@ -78,7 +73,7 @@ const menuItems = [
   { path: '/about', label: 'Overview' },
   { path: '/services', label: 'Services' },
   { path: '/team', label: 'Team' },
-  { path: '/customers', label: 'Customers' }
+  { path: '/contact', label: 'Contact us' }
 ]
 
 const toggleMobileMenu = () => {

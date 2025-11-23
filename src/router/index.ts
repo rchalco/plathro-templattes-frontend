@@ -10,7 +10,8 @@ import PerfilUser from '@/modules/security/views/PerfilUser.vue'
 import QuestionnairePage from '@/modules/questionnaire/routes/QuestionnairePage.vue'
 
 // Control Panel
-import AffiliatesPage from '@/modules/controlpanel/pages/AffiliatesPage.vue'
+import DashboardPage from '@/modules/controlpanel/pages/DashboardPage.vue'
+import UnderConstructionPage from '@/modules/controlpanel/pages/UnderConstructionPage.vue'
 
 // Customer template pages
 import HomePage from '@/modules/customer-template/home/routes/HomePage.vue'
@@ -37,6 +38,25 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardPage,
+    meta: {
+      preload: false,
+      title: 'Dashboard',
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/under-construction',
+    name: 'under-construction',
+    component: UnderConstructionPage,
+    meta: {
+      preload: false,
+      title: 'Under Construction',
+    },
+  },
+  {
     path: '/perfil',
     name: 'perfil-user',
     component: PerfilUser,
@@ -52,16 +72,6 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Client Questionnaire',
-    },
-  },
-  {
-    path: '/affiliates',
-    name: 'affiliates',
-    component: AffiliatesPage,
-    meta: {
-      preload: false,
-      title: 'Affiliates Dashboard',
-      requiresAuth: true,
     },
   },
   {
@@ -151,7 +161,8 @@ router.beforeEach(async (to, from, next) => {
   // Permitir acceso libre a rutas públicas
   const publicRoutes = [
     'login',
-    'affiliates',
+    'dashboard',
+    'under-construction',
     'questionnaire',
     'home',
     'about',

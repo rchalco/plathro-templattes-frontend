@@ -1,19 +1,22 @@
 <template>
-  <div class="services-page">
-    <TemplateHeader />
-    <main class="main-content">
-      <ServicesHeroSection />
-      <ServicesContentSection />
-      <AboutSection />
-      <ServicesAboutUsSection />
-      <ServicesWhyUsSection />
-    </main>
-    <TemplateFooter />
+  <MasterLayout>
+    <div class="services-page">
+      <TemplateHeader />
+      <main class="main-content">
+        <ServicesHeroSection />
+        <ServicesContentSection />
+        <AboutSection />
+        <ServicesAboutUsSection />
+        <ServicesWhyUsSection />
+      </main>
+      <TemplateFooter />
 
-  </div>
+    </div>
+  </MasterLayout>
 </template>
 
 <script setup lang="ts">
+import MasterLayout from '@/components/MasterLayout.vue'
 import TemplateHeader from '@/components/TemplateHeader.vue'
 import TemplateFooter from '@/components/TemplateFooter.vue'
 import ServicesHeroSection from '../components/ServicesHeroSection.vue'
