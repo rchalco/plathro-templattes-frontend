@@ -18,13 +18,8 @@
         </div>
 
         <nav class="sidebar-nav">
-          <a
-            v-for="item in menuItems"
-            :key="item.path"
-            :href="item.path"
-            class="nav-item"
-            @click.prevent="navigateTo(item.path)"
-          >
+          <a v-for="item in menuItems" :key="item.path" :href="item.path" class="nav-item"
+            @click.prevent="navigateTo(item.path)">
             <i :class="item.icon"></i>
             <span>{{ item.label }}</span>
           </a>
@@ -34,16 +29,11 @@
       <!-- Main Content -->
       <main class="main-content">
         <header class="content-header">
-          <h1>All sites</h1>
+          <h1>All Products</h1>
         </header>
 
         <div class="cards-grid">
-          <div
-            v-for="item in cardItems"
-            :key="item.path"
-            class="site-card"
-            @click="navigateTo(item.path)"
-          >
+          <div v-for="item in cardItems" :key="item.path" class="site-card" @click="navigateTo(item.path)">
             <div class="card-image">
               <img :src="item.image" :alt="item.label" />
             </div>

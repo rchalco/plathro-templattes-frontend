@@ -38,12 +38,12 @@
         <div class="sidebar-section site-actions">
           <button class="action-button deactivate-button" @click="deactivateSite">
             <i class="bi bi-pause-circle"></i>
-            <span>Desactivar Sitio</span>
+            <span>Disabled Site</span>
           </button>
 
           <button class="action-button delete-button" @click="deleteSite">
             <i class="bi bi-trash3"></i>
-            <span>Eliminar Sitio</span>
+            <span>Delete Site</span>
           </button>
         </div>
 
