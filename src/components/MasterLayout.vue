@@ -3,7 +3,7 @@
     <!-- Left Sidebar -->
     <aside class="layout-sidebar">
       <div class="sidebar-header">
-        <img src="@/assets/images/plogo.svg" alt="Platheo" class="logo" />
+        <img src="@/assets/images/picon.svg" alt="Platheo" class="logo" />
       </div>
 
       <nav class="sidebar-nav">
@@ -98,7 +98,7 @@ const updateMenuOptions = () => {
 }
 
 const goToDashboard = () => {
-  router.push('/dashboard')
+  router.push('/new-dashboard')
 }
 
 const goToAnalytics = () => {

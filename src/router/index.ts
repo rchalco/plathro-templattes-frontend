@@ -11,6 +11,7 @@ import QuestionnairePage from '@/modules/questionnaire/routes/QuestionnairePage.
 
 // Control Panel
 import DashboardPage from '@/modules/controlpanel/pages/DashboardPage.vue'
+import NewDashboardPage from '@/modules/controlpanel/pages/NewDashboardPage.vue'
 import UnderConstructionPage from '@/modules/controlpanel/pages/UnderConstructionPage.vue'
 import ModuleListPage from '@/modules/controlpanel/pages/ModuleListPage.vue'
 
@@ -45,6 +46,15 @@ const routes: RouteRecordRaw[] = [
     meta: {
       preload: false,
       title: 'Dashboard',
+    },
+  },
+  {
+    path: '/new-dashboard',
+    name: 'new-dashboard',
+    component: NewDashboardPage,
+    meta: {
+      preload: false,
+      title: 'New Dashboard',
     },
   },
   {
@@ -234,6 +244,7 @@ router.beforeEach(async (to, from, next) => {
   const publicRoutes = [
     'login',
     'dashboard',
+    'new-dashboard',
     'under-construction',
     'corporate-site',
     'ai-appointments',

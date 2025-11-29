@@ -1,5 +1,23 @@
 <template>
   <div class="container">
+    <!-- Terms & Conditions Modal -->
+    <div v-if="showTermsModal" class="terms-modal-overlay" @click.self="closeTermsModal">
+      <div class="terms-modal-content">
+        <div class="terms-modal-header">
+          <h2>Terms &amp; Conditions</h2>
+          <button class="terms-modal-close" @click="closeTermsModal">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="terms-modal-body">
+          <TermsContent />
+        </div>
+        <div class="terms-modal-footer">
+          <button class="terms-modal-accept" @click="acceptTerms">Accept &amp; Close</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Mobile Warning Overlay -->
     <!-- <div v-if="isMobileDevice" class="mobile-warning-overlay">
       <div class="mobile-warning-content">
@@ -109,7 +127,8 @@
                       <input v-model="termsAccepted" type="checkbox" name="terms" id="terms-checkbox" required>
                       <span class="checkbox-text neutral w-form-label w-form-label-inner" @click="toggleTerms">
                         I have read and agree to the
-                        <router-link to="/terms" class="text-link mid" @click.stop>Terms &amp; Conditions</router-link>
+                        <a href="#" class="text-link mid" @click.stop.prevent="openTermsModal">Terms &amp;
+                          Conditions</a>
                       </span>
                     </label>
                   </div>
@@ -168,8 +187,27 @@
 import { ref, onUnmounted, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { loginWithProvider } from '@/firebase/useFirebaseAuth'
+import TermsContent from '@/modules/compliance/TermsContent.vue'
 
 const router = useRouter()
+
+// Modal state
+const showTermsModal = ref(false)
+
+const openTermsModal = () => {
+  showTermsModal.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeTermsModal = () => {
+  showTermsModal.value = false
+  document.body.style.overflow = ''
+}
+
+const acceptTerms = () => {
+  termsAccepted.value = true
+  closeTermsModal()
+}
 
 // Mobile detection
 const isMobileDevice = ref(false)
@@ -233,7 +271,7 @@ const toggleTerms = () => {
 }
 
 const goToDashboard = () => {
-  router.push('/dashboard')
+  router.push('/new-dashboard')
 }
 
 const handleGoogleLogin = async () => {
@@ -376,5 +414,94 @@ input[type="checkbox"] {
   border-radius: 9px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Terms Modal Styles */
+.terms-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.terms-modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.terms-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.terms-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.terms-modal-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.terms-modal-close:hover {
+  background-color: #f0f0f0;
+}
+
+.terms-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.terms-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.terms-modal-accept {
+  padding: 12px 24px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.terms-modal-accept:hover {
+  background-color: #333;
 }
 </style>
