@@ -156,6 +156,9 @@ const deleteSite = () => {
   align-items: center;
   justify-content: center;
   position: relative;
+  background-color: #e0dbdb;
+  background-image: radial-gradient(#cccccc 1px, transparent 2px);
+  background-size: 20px 20px;
 }
 
 .sidebar-header::after {
@@ -368,10 +371,6 @@ const deleteSite = () => {
   padding: 0;
   background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  border-top-left-radius: 24px;
-  box-shadow:
-    0 -4px 24px rgba(0, 0, 0, 0.06),
-    0 -2px 12px rgba(0, 0, 0, 0.04);
   margin-top: 2px;
 }
 
@@ -464,38 +463,22 @@ const deleteSite = () => {
 .save-content-button {
   background-color: #0f0f0f;
   color: white;
-  box-shadow:
-    0 4px 16px rgba(67, 68, 68, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .save-content-button:hover {
   background-color: #0a0909;
   color: white;
-  box-shadow:
-    0 4px 16px rgba(67, 68, 68, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Analytics Button */
 .analytics-button {
   background-color: #0f0f0f;
   color: white;
-  box-shadow:
-    0 4px 16px rgba(67, 68, 68, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .analytics-button:hover {
   background-color: #0a0909;
   color: white;
-  box-shadow:
-    0 4px 16px rgba(67, 68, 68, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Action buttons inherit global styles but can have specific properties */

@@ -57,10 +57,6 @@ const publishSite = async () => {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
-  box-shadow:
-    0 4px 16px rgba(67, 68, 68, 0.3),
-    0 2px 8px rgba(16, 185, 129, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -143,11 +139,6 @@ const publishSite = async () => {
       inset 0 1px 0 rgba(255, 255, 255, 0.15); */
   }
 
-  .publish-site-button:hover {
-    box-shadow:
-      0 8px 25px rgba(255, 107, 107, 0.35),
-      0 4px 12px rgba(255, 107, 107, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  }
+  .publish-site-button:hover {}
 }
 </style>
