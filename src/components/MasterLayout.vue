@@ -36,14 +36,14 @@
 
         <!-- Site Management Actions -->
         <div class="sidebar-section site-actions">
-          <button class="action-button deactivate-button" @click="deactivateSite">
+          <button class="save-content-button" @click="deactivateSite">
             <i class="bi bi-pause-circle"></i>
-            <span>Desactivar Sitio</span>
+            <span>Disabled Site</span>
           </button>
 
-          <button class="action-button delete-button" @click="deleteSite">
+          <button class="save-content-button" @click="deleteSite">
             <i class="bi bi-trash3"></i>
-            <span>Eliminar Sitio</span>
+            <span>Delete Site</span>
           </button>
         </div>
 
@@ -137,7 +137,7 @@ const deleteSite = () => {
 /* Sidebar Styles */
 .layout-sidebar {
   width: 260px;
-  background: linear-gradient(180deg, #1a1625 0%, #2d2438 100%);
+  background-color: #3a3a3a;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -225,7 +225,7 @@ const deleteSite = () => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  background-color: #0a0909;
   transition: left 0.5s;
 }
 
@@ -319,7 +319,7 @@ const deleteSite = () => {
 
 .dashboard-button {
   /* Inherits dimensions and layout from global styles above */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #0a0909;
   color: #ffffff;
   box-shadow:
     0 4px 16px rgba(102, 126, 234, 0.3),
@@ -333,7 +333,7 @@ const deleteSite = () => {
     0 8px 25px rgba(102, 126, 234, 0.4),
     0 4px 12px rgba(102, 126, 234, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #7c8df0 0%, #8a5ab8 100%);
+
 }
 
 .dashboard-button:active {
@@ -462,40 +462,40 @@ const deleteSite = () => {
 
 /* Save Content Button */
 .save-content-button {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background-color: #0f0f0f;
   color: white;
   box-shadow:
-    0 4px 16px rgba(16, 185, 129, 0.3),
+    0 4px 16px rgba(67, 68, 68, 0.3),
     0 2px 8px rgba(16, 185, 129, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .save-content-button:hover {
-  transform: translateY(-1px);
+  background-color: #0a0909;
+  color: white;
   box-shadow:
-    0 6px 20px rgba(16, 185, 129, 0.4),
-    0 3px 8px rgba(16, 185, 129, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    0 4px 16px rgba(67, 68, 68, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Analytics Button */
 .analytics-button {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background-color: #0f0f0f;
   color: white;
   box-shadow:
-    0 4px 16px rgba(59, 130, 246, 0.3),
-    0 2px 8px rgba(59, 130, 246, 0.2),
+    0 4px 16px rgba(67, 68, 68, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .analytics-button:hover {
-  transform: translateY(-1px);
+  background-color: #0a0909;
+  color: white;
   box-shadow:
-    0 6px 20px rgba(59, 130, 246, 0.4),
-    0 3px 8px rgba(59, 130, 246, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    0 4px 16px rgba(67, 68, 68, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Action buttons inherit global styles but can have specific properties */

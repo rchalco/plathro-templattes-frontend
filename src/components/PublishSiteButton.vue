@@ -48,7 +48,7 @@ const publishSite = async () => {
   justify-content: center;
   width: 100%;
   padding: 12px 20px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #d63031 100%);
+  background-color: rgb(19, 18, 18);
   border: none;
   border-radius: 12px;
   color: white;
@@ -58,8 +58,8 @@ const publishSite = async () => {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   box-shadow:
-    0 4px 15px rgba(255, 107, 107, 0.3),
-    0 2px 8px rgba(255, 107, 107, 0.2),
+    0 4px 16px rgba(67, 68, 68, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
@@ -72,7 +72,7 @@ const publishSite = async () => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-color: rgb(19, 18, 18);
   transition: left 0.5s;
 }
 
@@ -80,21 +80,7 @@ const publishSite = async () => {
   left: 100%;
 }
 
-.publish-site-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 8px 25px rgba(255, 107, 107, 0.4),
-    0 4px 12px rgba(255, 107, 107, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #ff7979 0%, #fd79a8 50%, #e84393 100%);
-}
 
-.publish-site-button:active {
-  transform: translateY(0);
-  box-shadow:
-    0 2px 8px rgba(255, 107, 107, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
 
 .publish-site-button:disabled {
   cursor: not-allowed;
@@ -151,10 +137,10 @@ const publishSite = async () => {
 /* Dark mode enhancements */
 @media (prefers-color-scheme: dark) {
   .publish-site-button {
-    box-shadow:
+    /* box-shadow:
       0 4px 15px rgba(255, 107, 107, 0.25),
       0 2px 8px rgba(255, 107, 107, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      inset 0 1px 0 rgba(255, 255, 255, 0.15); */
   }
 
   .publish-site-button:hover {

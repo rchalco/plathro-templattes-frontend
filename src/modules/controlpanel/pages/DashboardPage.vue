@@ -3,9 +3,9 @@
     <div class="dashboard-container">
       <!-- Left Sidebar -->
       <aside class="sidebar">
-        <div class="sidebar-header">
-          <img src="@/assets/img/plogo.svg" alt="Platheo" class="logo" />
-          <h2>Dashboard</h2>
+        <div class="sidebar-header background-dark ">
+          <img src="@/assets/images/picon.svg" alt="Platheo" class="logo" />
+          <h2 class="background-dark-head">Dashboard</h2>
         </div>
 
         <div class="user-info">
@@ -18,13 +18,8 @@
         </div>
 
         <nav class="sidebar-nav">
-          <a
-            v-for="item in menuItems"
-            :key="item.path"
-            :href="item.path"
-            class="nav-item"
-            @click.prevent="navigateTo(item.path)"
-          >
+          <a v-for="item in menuItems" :key="item.path" :href="item.path" class="nav-item"
+            @click.prevent="navigateTo(item.path)">
             <i :class="item.icon"></i>
             <span>{{ item.label }}</span>
           </a>
@@ -34,16 +29,11 @@
       <!-- Main Content -->
       <main class="main-content">
         <header class="content-header">
-          <h1>All sites</h1>
+          <h1>All Products</h1>
         </header>
 
         <div class="cards-grid">
-          <div
-            v-for="item in cardItems"
-            :key="item.path"
-            class="site-card"
-            @click="navigateTo(item.path)"
-          >
+          <div v-for="item in cardItems" :key="item.path" class="site-card" @click="navigateTo(item.path)">
             <div class="card-image">
               <img :src="item.image" :alt="item.label" />
             </div>
@@ -92,7 +82,7 @@ const userInitials = computed(() => {
 
 const menuItems = [
   {
-    label: 'Corporate Site',
+    label: 'General',
     path: '/corporate-site',
     icon: 'bi bi-building',
     image: homeDecor1,
@@ -202,6 +192,10 @@ const navigateTo = (path: string) => {
   gap: 12px;
 }
 
+.sidebar-header h2 {
+  color: #e0e0e0 !important;
+}
+
 .logo {
   width: 32px;
   height: 32px;
@@ -226,7 +220,7 @@ const navigateTo = (path: string) => {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,5 +370,14 @@ const navigateTo = (path: string) => {
   .cards-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.background-dark {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+.background-dark-head {
+  color: #f5f5f5;
 }
 </style>

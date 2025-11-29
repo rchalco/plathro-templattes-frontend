@@ -1,13 +1,14 @@
 <template>
   <div class="container">
     <!-- Mobile Warning Overlay -->
-    <div v-if="isMobileDevice" class="mobile-warning-overlay">
+    <!-- <div v-if="isMobileDevice" class="mobile-warning-overlay">
       <div class="mobile-warning-content">
         <i class="bi bi-display"></i>
         <h2>Desktop Required</h2>
-        <p>This application requires a desktop environment for optimal functionality. Please access this site from a desktop or laptop computer.</p>
+        <p>This application requires a desktop environment for optimal functionality. Please access this site from a
+          desktop or laptop computer.</p>
       </div>
-    </div>
+    </div> -->
 
     <div class="column-wrap" :class="{ 'blur-content': isMobileDevice }">
       <!-- Left Column - Carousel -->
@@ -29,7 +30,7 @@
                   <div class="text-fixed-height">
                     <h4 class="quote-h4">{{ slide.quote }}</h4>
                   </div>
-                  <div class="author-block">
+                  <div class="author-block" @click="goToDashboard" style="cursor: pointer;">
                     <img :src="slide.avatar" :alt="`${slide.author} photo`" class="author-image-2">
                     <div class="author-detail-wrap">
                       <h4 class="author-name-2">{{ slide.author }}</h4>
@@ -64,17 +65,17 @@
       <div class="column-right">
         <div class="w-layout-blockcontainer container-default width-100 z-index-1 w-container">
           <!-- Labels -->
-          <div class="w-layout-hflex about-flex-block">
+          <!-- <div class="w-layout-hflex about-flex-block">
             <div v-for="label in labels" :key="label" class="about-section-label">
               <img loading="lazy" height="16" alt="Icon"
                 src="https://cdn.prod.website-files.com/681cb7286bd6eba158e8c6a6/6884edc656053e23bd011c14_butt-icon.svg"
                 class="image-22">
               <div class="text-block-32">{{ label }}</div>
             </div>
-          </div>
+          </div> -->
           <br />
           <h2 class="content-h2">
-            <span class="text-span-24">Happy</span> Entrepreneurs in Moncton and Fredericton, NB
+            <span class="text-span-24">Refer</span> colleagues and start earning.. your community is:
           </h2>
 
           <div class="inner-container _480px center">
@@ -88,19 +89,20 @@
                         loading="eager">
                     </router-link>
                     <div class="mg-top-extra-small">
+                      <h1 class="display-7 mid">Welcome</h1>
                       <div class="text-neutral-light">
                         <div class="inner-container _320px center">
-                          <p class="paragraph-12">
-                            <span class="text-span-23">FREE WEBSITE</span><br>
-                            <span class="text-span-22">NB Business mentored by:</span><br>
-                            Ignite Incubator BIE Program and<br>
-                            Oulton College Business Program
-                          </p>
+                          <p class="paragraph-12"><span class="text-span-23">COMMUNITIES</span><br></p>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                  <select id="field" name="field" data-name="Field" class="select-field w-select">
+                    <option value="">Select for better support...</option>
+                    <option value="First">Handy People (maintain and repair homes)</option>
+                    <option value="Second">Second choice</option>
+                    <option value="Third">Third choice</option>
+                  </select>
                   <!-- Terms Checkbox -->
                   <div class="div-block-33">
                     <label class="w-checkbox checkbox-wrapper">
@@ -120,7 +122,7 @@
                           src="/src/assets/images/google-icon-dashbrd-x-webflow-template.svg" loading="eager"
                           class="badge-icon">
                         <div class="text-block-77">Continue with Google</div>
-                        <div class="text-block-77">CAD 200 Gift</div>
+                        <div class="text-block-77">CAD 20 Gift</div>
                       </div>
                     </button>
                     <div class="text">
@@ -129,10 +131,10 @@
                   </div>
 
                   <!-- Partner Logos -->
-                  <div class="w-layout-grid grid">
+                  <!-- <div class="w-layout-grid grid">
                     <img src="/src/assets/images/Ignite.svg" loading="lazy" alt="Ignite" class="image-83">
                     <img src="/src/assets/images/oulton.svg" loading="lazy" alt="Oulton" class="image-84">
-                  </div>
+                  </div> -->
                 </form>
 
                 <!-- Success Message -->
@@ -177,7 +179,7 @@ onMounted(() => {
   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
   const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())
   const isSmallScreen = window.innerWidth < 1024
-  
+
   isMobileDevice.value = isMobile || isSmallScreen
 })
 
@@ -230,6 +232,10 @@ const toggleTerms = () => {
   termsAccepted.value = !termsAccepted.value
 }
 
+const goToDashboard = () => {
+  router.push('/dashboard')
+}
+
 const handleGoogleLogin = async () => {
   if (!termsAccepted.value) {
     showError.value = true
@@ -242,14 +248,14 @@ const handleGoogleLogin = async () => {
     showSuccess.value = false
 
     // Call Firebase authentication with Google provider
-    await loginWithProvider('google')
+    //await loginWithProvider('google')
 
     showSuccess.value = true
 
     // Redirect to dashboard after successful login
-    setTimeout(() => {
+    /*setTimeout(() => {
       router.push('/dashboard')
-    }, 1000)
+    }, 1000)*/
   } catch (error) {
     showError.value = true
     errorMessage.value = 'Oops! Something went wrong while submitting the form.'
@@ -361,5 +367,14 @@ input[type="checkbox"] {
 
 .w-form-label-inner {
   margin-left: 10px;
+}
+
+.select-field {
+  color: #000;
+  background-color: #f3f5f8;
+  border: 1px dashed #0000000f;
+  border-radius: 9px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
