@@ -10,11 +10,11 @@
             <span class="nav-link">Apps</span>
             <i class="bi bi-chevron-down dropdown-icon"></i>
             <div v-if="showAppsMenu" class="dropdown-menu apps-menu">
-              <a href="#" class="dropdown-item" @click.prevent="selectApp('micro-websites')">Micro Websites</a>
-              <a href="#" class="dropdown-item" @click.prevent="selectApp('referrals')">Referrals</a>
-              <a href="#" class="dropdown-item" @click.prevent="selectApp('simplified-crm')">Simplified CRM</a>
-              <a href="#" class="dropdown-item" @click.prevent="selectApp('work-submission')">Work submission form</a>
-              <a href="#" class="dropdown-item" @click.prevent="selectApp('ai-appointments')">AI Appointments</a>
+              <a href="#" class="dropdown-item">Micro Websites</a>
+              <a href="#" class="dropdown-item">Referrals</a>
+              <a href="#" class="dropdown-item">Simplified CRM</a>
+              <a href="#" class="dropdown-item">Work submission form</a>
+              <a href="#" class="dropdown-item">AI Appointments</a>
             </div>
           </div>
         </nav>
@@ -61,26 +61,31 @@
 
         <!-- Sidebar Navigation -->
         <nav class="sidebar-nav">
-          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'micro-websites' }" @click.prevent="activeSection = 'micro-websites'">
+          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'micro-websites' }"
+            @click.prevent="activeSection = 'micro-websites'">
             <i class="bi bi-folder"></i>
             <span>Micro Websites</span>
           </a>
-          
+
           <div class="sidebar-section-title">Settings</div>
-          
-          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'general' }" @click.prevent="activeSection = 'general'">
+
+          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'general' }"
+            @click.prevent="activeSection = 'general'">
             <i class="bi bi-sliders"></i>
             <span>General</span>
           </a>
-          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'team' }" @click.prevent="activeSection = 'team'">
+          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'team' }"
+            @click.prevent="activeSection = 'team'">
             <i class="bi bi-people"></i>
             <span>Team</span>
           </a>
-          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'plans' }" @click.prevent="activeSection = 'plans'">
+          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'plans' }"
+            @click.prevent="activeSection = 'plans'">
             <i class="bi bi-broadcast"></i>
             <span>Plans</span>
           </a>
-          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'billing' }" @click.prevent="activeSection = 'billing'">
+          <a href="#" class="sidebar-item" :class="{ active: activeSection === 'billing' }"
+            @click.prevent="activeSection = 'billing'">
             <i class="bi bi-currency-dollar"></i>
             <span>Billing</span>
           </a>
@@ -102,8 +107,10 @@
               <span>Location</span>
               <i class="bi bi-chevron-down dropdown-icon"></i>
               <div v-if="showLocationMenu" class="dropdown-menu location-menu">
-                <a href="#" class="dropdown-item" :class="{ selected: selectedLocation === 'Moncton' }" @click.prevent="selectLocation('Moncton')">Moncton</a>
-                <a href="#" class="dropdown-item" :class="{ selected: selectedLocation === 'Fredericton' }" @click.prevent="selectLocation('Fredericton')">Fredericton</a>
+                <a href="#" class="dropdown-item" :class="{ selected: selectedLocation === 'Moncton' }"
+                  @click.prevent="selectLocation('Moncton')">Moncton</a>
+                <a href="#" class="dropdown-item" :class="{ selected: selectedLocation === 'Fredericton' }"
+                  @click.prevent="selectLocation('Fredericton')">Fredericton</a>
               </div>
             </div>
             <button class="invite-btn">
@@ -182,16 +189,16 @@ const userInitials = computed(() => {
 const items = ref([
   {
     id: 1,
-    name: 'Platheo SaaS',
-    subtitle: '3 sites',
+    name: 'Carlos website',
+    subtitle: 'app.platheo.com/carlos',
     lastModified: '5 hours ago',
     lastPublished: 'Nov 19, 2025',
     dateCreated: 'Jul 30, 2025'
   },
   {
     id: 2,
-    name: 'Sign-in Portal',
-    subtitle: 'sign-in-3f85c8.webflow.io',
+    name: 'Myke website',
+    subtitle: 'app.platheo.com/mykee',
     lastModified: '3 hours ago',
     lastPublished: 'Nov 25, 2025',
     dateCreated: 'Nov 25, 2025'
@@ -200,7 +207,7 @@ const items = ref([
 
 const filteredItems = computed(() => {
   if (!searchQuery.value) return items.value
-  return items.value.filter(item => 
+  return items.value.filter(item =>
     item.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     item.subtitle.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
@@ -300,6 +307,7 @@ const closeAllDropdowns = () => {
 .header-logo {
   width: 32px;
   height: 32px;
+  background-color: #030303;
 }
 
 .header-nav {
@@ -560,7 +568,7 @@ const closeAllDropdowns = () => {
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
-  min-width: 280px;
+  min-width: 380px;
 }
 
 .search-box i {
@@ -724,7 +732,7 @@ const closeAllDropdowns = () => {
   .left-sidebar {
     width: 240px;
   }
-  
+
   .search-box {
     min-width: 200px;
   }
@@ -734,33 +742,33 @@ const closeAllDropdowns = () => {
   .main-container {
     flex-direction: column;
   }
-  
+
   .left-sidebar {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #e5e5e5;
   }
-  
+
   .content-header {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
   }
-  
+
   .content-actions {
     flex-wrap: wrap;
     width: 100%;
   }
-  
+
   .search-box {
     min-width: 100%;
   }
-  
+
   .table-header,
   .table-row {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .col-published,
   .col-created {
     display: none;

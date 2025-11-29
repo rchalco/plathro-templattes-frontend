@@ -127,7 +127,8 @@
                       <input v-model="termsAccepted" type="checkbox" name="terms" id="terms-checkbox" required>
                       <span class="checkbox-text neutral w-form-label w-form-label-inner" @click="toggleTerms">
                         I have read and agree to the
-                        <a href="#" class="text-link mid" @click.stop.prevent="openTermsModal">Terms &amp; Conditions</a>
+                        <a href="#" class="text-link mid" @click.stop.prevent="openTermsModal">Terms &amp;
+                          Conditions</a>
                       </span>
                     </label>
                   </div>
@@ -270,7 +271,7 @@ const toggleTerms = () => {
 }
 
 const goToDashboard = () => {
-  router.push('/dashboard')
+  router.push('/new-dashboard')
 }
 
 const handleGoogleLogin = async () => {
