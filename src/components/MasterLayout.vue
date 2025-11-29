@@ -144,8 +144,6 @@ const deleteSite = () => {
   height: 100vh;
   overflow-y: auto;
   z-index: 100;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(20px);
 }
 
@@ -156,7 +154,7 @@ const deleteSite = () => {
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: #e0dbdb;
+  background-color: #dbe0e0e6;
   background-image: radial-gradient(#cccccc 1px, transparent 2px);
   background-size: 20px 20px;
 }
@@ -306,7 +304,6 @@ const deleteSite = () => {
 .sidebar-footer {
   padding: 20px 16px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
   position: relative;
 }
 
@@ -324,19 +321,10 @@ const deleteSite = () => {
   /* Inherits dimensions and layout from global styles above */
   background-color: #0a0909;
   color: #ffffff;
-  box-shadow:
-    0 4px 16px rgba(102, 126, 234, 0.3),
-    0 2px 8px rgba(102, 126, 234, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .dashboard-button:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 8px 25px rgba(102, 126, 234, 0.4),
-    0 4px 12px rgba(102, 126, 234, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-
 }
 
 .dashboard-button:active {
